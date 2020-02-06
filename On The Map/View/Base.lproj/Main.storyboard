@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Persons Table-->
+        <!--Locations Table-->
         <scene sceneID="USv-O8-ySj">
             <objects>
-                <viewController id="lg0-wd-yNu" userLabel="Persons Table" sceneMemberID="viewController">
+                <viewController id="lg0-wd-yNu" userLabel="Locations Table" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uOe-SG-1tD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
