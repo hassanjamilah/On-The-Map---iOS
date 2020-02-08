@@ -10,6 +10,8 @@
 		CE169A1823EC3B6D0065A784 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE169A1723EC3B6D0065A784 /* MapViewController.swift */; };
 		CE169A1A23EC3B830065A784 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE169A1923EC3B830065A784 /* LocationsViewController.swift */; };
 		CE169A1C23EC3BAF0065A784 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE169A1B23EC3BAF0065A784 /* AddLocationViewController.swift */; };
+		CED6813523EE375C006C93B2 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6813423EE375C006C93B2 /* Student.swift */; };
+		CED6813823EE3BC6006C93B2 /* StudentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6813723EE3BC6006C93B2 /* StudentClient.swift */; };
 		CEF37D4023EAEC44008CA8FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF37D3F23EAEC44008CA8FE /* AppDelegate.swift */; };
 		CEF37D4223EAEC44008CA8FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF37D4123EAEC44008CA8FE /* SceneDelegate.swift */; };
 		CEF37D4723EAEC44008CA8FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF37D4523EAEC44008CA8FE /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 		CE169A1723EC3B6D0065A784 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CE169A1923EC3B830065A784 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		CE169A1B23EC3BAF0065A784 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		CED6813423EE375C006C93B2 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		CED6813723EE3BC6006C93B2 /* StudentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClient.swift; sourceTree = "<group>"; };
 		CEF37D3C23EAEC44008CA8FE /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF37D3F23EAEC44008CA8FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF37D4123EAEC44008CA8FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +48,8 @@
 		CE169A1423EC3AD80065A784 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CED6813623EE3BA9006C93B2 /* Sudent Client */,
+				CED6813423EE375C006C93B2 /* Student.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -68,6 +74,14 @@
 				CE169A1B23EC3BAF0065A784 /* AddLocationViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		CED6813623EE3BA9006C93B2 /* Sudent Client */ = {
+			isa = PBXGroup;
+			children = (
+				CED6813723EE3BC6006C93B2 /* StudentClient.swift */,
+			);
+			path = "Sudent Client";
 			sourceTree = "<group>";
 		};
 		CEF37D3323EAEC44008CA8FE = {
@@ -169,6 +183,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEF37D4023EAEC44008CA8FE /* AppDelegate.swift in Sources */,
+				CED6813523EE375C006C93B2 /* Student.swift in Sources */,
+				CED6813823EE3BC6006C93B2 /* StudentClient.swift in Sources */,
 				CE169A1823EC3B6D0065A784 /* MapViewController.swift in Sources */,
 				CE169A1C23EC3BAF0065A784 /* AddLocationViewController.swift in Sources */,
 				CEF37D4223EAEC44008CA8FE /* SceneDelegate.swift in Sources */,

@@ -17,7 +17,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="FPK-nW-mSq"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="VEp-SM-RTM"/>
+                    <tabBarItem key="tabBarItem" title="Locations" image="list.dash" catalog="system" id="VEp-SM-RTM">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9W-az-p2w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -30,14 +32,34 @@
                     <view key="view" contentMode="scaleToFill" id="9pq-kz-G8s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCS-ry-bDx">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="6VH-3x-Qot"/>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="coK-6A-IC7">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nCS-ry-bDx" firstAttribute="trailing" secondItem="coK-6A-IC7" secondAttribute="trailing" id="4yW-DO-WZz"/>
+                            <constraint firstItem="nCS-ry-bDx" firstAttribute="leading" secondItem="coK-6A-IC7" secondAttribute="leading" id="5fz-Mc-AhE"/>
+                            <constraint firstItem="ZBf-Ta-Vd8" firstAttribute="bottom" secondItem="coK-6A-IC7" secondAttribute="bottom" id="GXN-zd-ly2"/>
+                            <constraint firstItem="ZBf-Ta-Vd8" firstAttribute="trailing" secondItem="coK-6A-IC7" secondAttribute="trailing" id="Wkg-Yw-ZcV"/>
+                            <constraint firstItem="nCS-ry-bDx" firstAttribute="top" secondItem="ZBf-Ta-Vd8" secondAttribute="top" id="aNK-KX-Z8V"/>
+                            <constraint firstItem="coK-6A-IC7" firstAttribute="leading" secondItem="ZBf-Ta-Vd8" secondAttribute="leading" id="cfX-95-1lq"/>
+                            <constraint firstItem="coK-6A-IC7" firstAttribute="top" secondItem="nCS-ry-bDx" secondAttribute="bottom" id="g5V-hB-AIH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZBf-Ta-Vd8"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="L7i-hz-Qo3"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="L7i-hz-Qo3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O0p-xd-Gf3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-581" y="-471"/>
+            <point key="canvasLocation" x="-581.15942028985512" y="-471.42857142857139"/>
         </scene>
         <!--Add Person-->
         <scene sceneID="w3e-ae-y23">
@@ -87,17 +109,23 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4J1-oj-VQR" userLabel="Email">
-                                <rect key="frame" x="40" y="257" width="334" height="34"/>
+                                <rect key="frame" x="40" y="257" width="334" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="qDn-vO-7Ya"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U6B-ad-47s" userLabel="Password">
-                                <rect key="frame" x="40" y="317" width="334" height="34"/>
+                                <rect key="frame" x="40" y="323" width="334" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="h3U-JV-NGa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cz5-OW-e1L">
-                                <rect key="frame" x="40" y="379" width="334" height="45"/>
+                                <rect key="frame" x="40" y="391" width="334" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.64313725490196072" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="ycD-xd-YbQ"/>
@@ -108,7 +136,7 @@
                                 </state>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="itb-dT-Y8H">
-                                <rect key="frame" x="85" y="432" width="244" height="30"/>
+                                <rect key="frame" x="85" y="444" width="244" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4m-kz-xOr">
                                         <rect key="frame" x="0.0" y="0.0" width="179" height="30"/>
@@ -163,6 +191,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="list.dash" catalog="system" width="64" height="42"/>
+        <image name="map" catalog="system" width="64" height="56"/>
         <image name="udacity" width="75" height="75"/>
     </resources>
 </document>
