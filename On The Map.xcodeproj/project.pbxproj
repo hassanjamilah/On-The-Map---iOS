@@ -12,6 +12,9 @@
 		CE169A1C23EC3BAF0065A784 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE169A1B23EC3BAF0065A784 /* AddLocationViewController.swift */; };
 		CED6813523EE375C006C93B2 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6813423EE375C006C93B2 /* Student.swift */; };
 		CED6813823EE3BC6006C93B2 /* StudentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6813723EE3BC6006C93B2 /* StudentClient.swift */; };
+		CED6813F23EE5A8C006C93B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6813E23EE5A8C006C93B2 /* LoginViewController.swift */; };
+		CED6815523EE70B4006C93B2 /* On_The_MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6815423EE70B4006C93B2 /* On_The_MapTests.swift */; };
+		CED6816B23EE7CB1006C93B2 /* PostStudentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6816A23EE7CB1006C93B2 /* PostStudentBody.swift */; };
 		CEF37D4023EAEC44008CA8FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF37D3F23EAEC44008CA8FE /* AppDelegate.swift */; };
 		CEF37D4223EAEC44008CA8FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF37D4123EAEC44008CA8FE /* SceneDelegate.swift */; };
 		CEF37D4723EAEC44008CA8FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF37D4523EAEC44008CA8FE /* Main.storyboard */; };
@@ -19,12 +22,27 @@
 		CEF37D4C23EAEC46008CA8FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF37D4A23EAEC46008CA8FE /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CED6815723EE70B4006C93B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEF37D3423EAEC44008CA8FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEF37D3B23EAEC44008CA8FE;
+			remoteInfo = "On The Map";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		CE169A1723EC3B6D0065A784 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CE169A1923EC3B830065A784 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		CE169A1B23EC3BAF0065A784 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		CED6813423EE375C006C93B2 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		CED6813723EE3BC6006C93B2 /* StudentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClient.swift; sourceTree = "<group>"; };
+		CED6813E23EE5A8C006C93B2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CED6815223EE70B4006C93B2 /* On The MapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "On The MapTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED6815423EE70B4006C93B2 /* On_The_MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = On_The_MapTests.swift; sourceTree = "<group>"; };
+		CED6815623EE70B4006C93B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED6816A23EE7CB1006C93B2 /* PostStudentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStudentBody.swift; sourceTree = "<group>"; };
 		CEF37D3C23EAEC44008CA8FE /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF37D3F23EAEC44008CA8FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF37D4123EAEC44008CA8FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +53,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CED6814F23EE70B4006C93B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEF37D3923EAEC44008CA8FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -48,8 +73,9 @@
 		CE169A1423EC3AD80065A784 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CED6813A23EE4695006C93B2 /* Request Models */,
+				CED6813923EE4687006C93B2 /* Response Models */,
 				CED6813623EE3BA9006C93B2 /* Sudent Client */,
-				CED6813423EE375C006C93B2 /* Student.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -72,6 +98,7 @@
 				CE169A1723EC3B6D0065A784 /* MapViewController.swift */,
 				CE169A1923EC3B830065A784 /* LocationsViewController.swift */,
 				CE169A1B23EC3BAF0065A784 /* AddLocationViewController.swift */,
+				CED6813E23EE5A8C006C93B2 /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -84,10 +111,43 @@
 			path = "Sudent Client";
 			sourceTree = "<group>";
 		};
+		CED6813923EE4687006C93B2 /* Response Models */ = {
+			isa = PBXGroup;
+			children = (
+				CED6813423EE375C006C93B2 /* Student.swift */,
+			);
+			path = "Response Models";
+			sourceTree = "<group>";
+		};
+		CED6813A23EE4695006C93B2 /* Request Models */ = {
+			isa = PBXGroup;
+			children = (
+				CED6816A23EE7CB1006C93B2 /* PostStudentBody.swift */,
+			);
+			path = "Request Models";
+			sourceTree = "<group>";
+		};
+		CED6813B23EE559A006C93B2 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		CED6815323EE70B4006C93B2 /* On The MapTests */ = {
+			isa = PBXGroup;
+			children = (
+				CED6815423EE70B4006C93B2 /* On_The_MapTests.swift */,
+				CED6815623EE70B4006C93B2 /* Info.plist */,
+			);
+			path = "On The MapTests";
+			sourceTree = "<group>";
+		};
 		CEF37D3323EAEC44008CA8FE = {
 			isa = PBXGroup;
 			children = (
 				CEF37D3E23EAEC44008CA8FE /* On The Map */,
+				CED6815323EE70B4006C93B2 /* On The MapTests */,
 				CEF37D3D23EAEC44008CA8FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				CEF37D3C23EAEC44008CA8FE /* On The Map.app */,
+				CED6815223EE70B4006C93B2 /* On The MapTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +164,7 @@
 		CEF37D3E23EAEC44008CA8FE /* On The Map */ = {
 			isa = PBXGroup;
 			children = (
+				CED6813B23EE559A006C93B2 /* Tests */,
 				CE169A1623EC3AED0065A784 /* Controller */,
 				CE169A1523EC3AE60065A784 /* View */,
 				CE169A1423EC3AD80065A784 /* Model */,
@@ -114,6 +176,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CED6815123EE70B4006C93B2 /* On The MapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CED6815923EE70B4006C93B2 /* Build configuration list for PBXNativeTarget "On The MapTests" */;
+			buildPhases = (
+				CED6814E23EE70B4006C93B2 /* Sources */,
+				CED6814F23EE70B4006C93B2 /* Frameworks */,
+				CED6815023EE70B4006C93B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CED6815823EE70B4006C93B2 /* PBXTargetDependency */,
+			);
+			name = "On The MapTests";
+			productName = "On The MapTests";
+			productReference = CED6815223EE70B4006C93B2 /* On The MapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CEF37D3B23EAEC44008CA8FE /* On The Map */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEF37D5023EAEC46008CA8FE /* Build configuration list for PBXNativeTarget "On The Map" */;
@@ -141,6 +221,10 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Andalus;
 				TargetAttributes = {
+					CED6815123EE70B4006C93B2 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = CEF37D3B23EAEC44008CA8FE;
+					};
 					CEF37D3B23EAEC44008CA8FE = {
 						CreatedOnToolsVersion = 11.3;
 					};
@@ -160,11 +244,19 @@
 			projectRoot = "";
 			targets = (
 				CEF37D3B23EAEC44008CA8FE /* On The Map */,
+				CED6815123EE70B4006C93B2 /* On The MapTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CED6815023EE70B4006C93B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEF37D3A23EAEC44008CA8FE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -178,12 +270,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CED6814E23EE70B4006C93B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED6815523EE70B4006C93B2 /* On_The_MapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEF37D3823EAEC44008CA8FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED6813F23EE5A8C006C93B2 /* LoginViewController.swift in Sources */,
 				CEF37D4023EAEC44008CA8FE /* AppDelegate.swift in Sources */,
 				CED6813523EE375C006C93B2 /* Student.swift in Sources */,
+				CED6816B23EE7CB1006C93B2 /* PostStudentBody.swift in Sources */,
 				CED6813823EE3BC6006C93B2 /* StudentClient.swift in Sources */,
 				CE169A1823EC3B6D0065A784 /* MapViewController.swift in Sources */,
 				CE169A1C23EC3BAF0065A784 /* AddLocationViewController.swift in Sources */,
@@ -193,6 +295,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CED6815823EE70B4006C93B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEF37D3B23EAEC44008CA8FE /* On The Map */;
+			targetProxy = CED6815723EE70B4006C93B2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CEF37D4523EAEC44008CA8FE /* Main.storyboard */ = {
@@ -214,6 +324,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CED6815A23EE70B4006C93B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "On The MapTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andalus.On-The-MapTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/On The Map.app/On The Map";
+			};
+			name = Debug;
+		};
+		CED6815B23EE70B4006C93B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "On The MapTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andalus.On-The-MapTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/On The Map.app/On The Map";
+			};
+			name = Release;
+		};
 		CEF37D4E23EAEC46008CA8FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -365,6 +513,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CED6815923EE70B4006C93B2 /* Build configuration list for PBXNativeTarget "On The MapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED6815A23EE70B4006C93B2 /* Debug */,
+				CED6815B23EE70B4006C93B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CEF37D3723EAEC44008CA8FE /* Build configuration list for PBXProject "On The Map" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
