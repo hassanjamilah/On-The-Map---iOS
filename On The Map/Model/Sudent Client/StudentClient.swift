@@ -108,11 +108,51 @@ class  StudentClient {
     
     class func taskForPostRequest<ResponseType: Decodable , RequestType:Encodable>(url:URL , body:RequestType , responseType:ResponseType.Type , completionHandler:@escaping(ResponseType? ,URLResponse? ,  Error?)->Void)->URLSessionTask{
         
-        let url = EndPoints.postStudentInfo.url
+        print ("The url for the post request is : \(url)")
         var request = URLRequest(url: url)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod="POST"
+        do{
+            let requestBody = try JSONEncoder().encode(body)
+            request.httpBody = requestBody
+        }catch{
+            print (ErrorMsgs.errorParsingJson("For type : \(RequestType.Type.self) with error : \(error.localizedDescription)"))
+            DispatchQueue.main.async {
+                completionHandler(nil , nil , error)
+            }
+            
+        }
         
-        return URLSession.shared.dataTask(with: url)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                print (ErrorMsgs.errorParsingData(" for type : \(ResponseType.Type.self) with error : \(error!.localizedDescription)"))
+                completionHandler(nil , response , error)
+                return
+            }
+            do{
+                 print ((response as! HTTPURLResponse).statusCode )
+                print (data)
+                print (String(data: data, encoding: .utf8)!)
+                print (try! JSONDecoder().decode(PostStudentBody.self, from: request.httpBody!))
+                let result  = try JSONDecoder().decode(ResponseType.self, from: data)
+               
+                completionHandler(result , response , nil)
+                print (ErrorMsgs.success("in type : \(ResponseType.Type.self) \(result)"))
+            }catch{
+                if  let newError = try? JSONDecoder().decode(ErrorRespons.self, from: data){
+                   
+                   completionHandler(nil , response , newError)
+                }else {
+                    let stringData = String(data: data , encoding: .utf8)!
+                    print (ErrorMsgs.errorParsingJson(" in type :\(ResponseType.Type.self) with erorr : \(error.localizedDescription) data is : \(stringData)"))
+                    completionHandler(nil , response , error)
+                }
+              
+            }
+        }
+        task.resume()
+        return task
+       
     }
     
     
@@ -125,7 +165,9 @@ class  StudentClient {
     }
     
    
-    
+    class func  getCompletionHandlerInMainThread<ResponseType: Decodable>(handler:(ResponseType? , URLResponse? , Error?)->Void){
+        
+    }
     
    
 }

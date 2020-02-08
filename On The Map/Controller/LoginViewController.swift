@@ -13,12 +13,11 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        Student.getStudents(limit: 10, skip: 0, order: "", uniqueKey: "") { (students,response ,  error) in
-            for x in students {
-                print (x.longitude)
-                
-            }
+        let  st = Student(createDate: "", firstName: "F1", lastName: "L1", latitude: 2.34332, longitude: 3.34343, mapString: "KL", mediaURL: "https://wwww.google.com", objectID: "", uniqueKey: "", updatedDate: "")
+        StudentApiCaller.postNewStudent(student: st) { (result, response, error) in
+            
         }
+    
         
     }
     

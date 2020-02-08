@@ -21,7 +21,7 @@ struct PostStudentBody:Codable {
     let firstName:String
     let lastName:String
     let mapString:String
-    let meidaURL:String
+    let mediaURL:String
     let latitude:Double
     let longitude:Double
 
@@ -30,7 +30,7 @@ struct PostStudentBody:Codable {
         case firstName
         case lastName
         case mapString
-        case meidaURL
+        case mediaURL
         case latitude
         case longitude
     }

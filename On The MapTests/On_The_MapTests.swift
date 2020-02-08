@@ -25,7 +25,7 @@ class On_The_MapTests: XCTestCase {
     
     func testGetAllStudents(){
         let promise = expectation(description: "Call succeeded")
-        Student.getStudents(limit: 10, skip: 0, order: "", uniqueKey: "") { (students,response, error) in
+        StudentApiCaller.getStudents(limit: 10, skip: 0, order: "", uniqueKey: "") { (students,response, error) in
             if let error = error {
                 XCTFail("Error : \(error.localizedDescription)")
             }else if let statusCode = (response as? HTTPURLResponse)?.statusCode {
@@ -39,7 +39,31 @@ class On_The_MapTests: XCTestCase {
         }
         wait(for: [promise], timeout: 5)
     }
+    
+    
+    func testPostNewStudent(){
+        let promise = expectation(description: "Status code = 200")
+        let  st = Student(createDate: "", firstName: "F1", lastName: "L1", latitude: 2.34332, longitude: 3.34343, mapString: "KL", mediaURL: "https://wwww.google.com", objectID: "", uniqueKey: "", updatedDate: "")
+        StudentApiCaller.postNewStudent(student: st) { (studentResponse, response, error) in
+            if let error = error {
+                XCTFail("Error in posting \(error)")
+            }else
+            if let studentResponse = studentResponse {
+                promise.fulfill()
+                print ("Success in response \(studentResponse)")
+            }else {
+                XCTFail("Error in response of posting")
+            }
+        }
+        wait(for: [promise], timeout: 5)
+    }
 
+    
+    func testEndPointURL(){
+        let var1 = StudentClient.EndPoints.postStudentInfo.url
+        let var2 = URL(string: StudentClient.EndPoints.baseURL + "/StudentLocation")!
+        XCTAssertEqual(var1, var2 , "Error in getting the url")
+    }
     func testPerformanceExample() {
         // This is an example of a performance test case.
         measure {
