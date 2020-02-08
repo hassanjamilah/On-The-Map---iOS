@@ -18,6 +18,10 @@
 		CED6816D23EE8D02006C93B2 /* StudentApiCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6816C23EE8D02006C93B2 /* StudentApiCaller.swift */; };
 		CED6816F23EE8FD2006C93B2 /* PostStudentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6816E23EE8FD2006C93B2 /* PostStudentResponse.swift */; };
 		CED6817123EE9E25006C93B2 /* ErrorResonse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6817023EE9E25006C93B2 /* ErrorResonse.swift */; };
+		CED6817323EEAA2F006C93B2 /* ModifyStudentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6817223EEAA2F006C93B2 /* ModifyStudentResponse.swift */; };
+		CED6817523EECB7F006C93B2 /* SessionFromUdacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6817423EECB7F006C93B2 /* SessionFromUdacity.swift */; };
+		CED6817D23EECCB3006C93B2 /* StructsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6817C23EECCB3006C93B2 /* StructsTests.swift */; };
+		CED6818523EECFA3006C93B2 /* PostSessionFromUdacityBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6818423EECFA3006C93B2 /* PostSessionFromUdacityBody.swift */; };
 		CEF37D4023EAEC44008CA8FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF37D3F23EAEC44008CA8FE /* AppDelegate.swift */; };
 		CEF37D4223EAEC44008CA8FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF37D4123EAEC44008CA8FE /* SceneDelegate.swift */; };
 		CEF37D4723EAEC44008CA8FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF37D4523EAEC44008CA8FE /* Main.storyboard */; };
@@ -27,6 +31,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		CED6815723EE70B4006C93B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEF37D3423EAEC44008CA8FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEF37D3B23EAEC44008CA8FE;
+			remoteInfo = "On The Map";
+		};
+		CED6817F23EECCB3006C93B2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CEF37D3423EAEC44008CA8FE /* Project object */;
 			proxyType = 1;
@@ -49,6 +60,12 @@
 		CED6816C23EE8D02006C93B2 /* StudentApiCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentApiCaller.swift; sourceTree = "<group>"; };
 		CED6816E23EE8FD2006C93B2 /* PostStudentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStudentResponse.swift; sourceTree = "<group>"; };
 		CED6817023EE9E25006C93B2 /* ErrorResonse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResonse.swift; sourceTree = "<group>"; };
+		CED6817223EEAA2F006C93B2 /* ModifyStudentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyStudentResponse.swift; sourceTree = "<group>"; };
+		CED6817423EECB7F006C93B2 /* SessionFromUdacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFromUdacity.swift; sourceTree = "<group>"; };
+		CED6817A23EECCB3006C93B2 /* StructsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StructsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED6817C23EECCB3006C93B2 /* StructsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructsTests.swift; sourceTree = "<group>"; };
+		CED6817E23EECCB3006C93B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED6818423EECFA3006C93B2 /* PostSessionFromUdacityBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSessionFromUdacityBody.swift; sourceTree = "<group>"; };
 		CEF37D3C23EAEC44008CA8FE /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF37D3F23EAEC44008CA8FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF37D4123EAEC44008CA8FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +77,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		CED6814F23EE70B4006C93B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED6817723EECCB3006C93B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -124,6 +148,8 @@
 				CED6813423EE375C006C93B2 /* Student.swift */,
 				CED6816E23EE8FD2006C93B2 /* PostStudentResponse.swift */,
 				CED6817023EE9E25006C93B2 /* ErrorResonse.swift */,
+				CED6817223EEAA2F006C93B2 /* ModifyStudentResponse.swift */,
+				CED6817423EECB7F006C93B2 /* SessionFromUdacity.swift */,
 			);
 			path = "Response Models";
 			sourceTree = "<group>";
@@ -132,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				CED6816A23EE7CB1006C93B2 /* PostStudentBody.swift */,
+				CED6818423EECFA3006C93B2 /* PostSessionFromUdacityBody.swift */,
 			);
 			path = "Request Models";
 			sourceTree = "<group>";
@@ -152,11 +179,21 @@
 			path = "On The MapTests";
 			sourceTree = "<group>";
 		};
+		CED6817B23EECCB3006C93B2 /* StructsTests */ = {
+			isa = PBXGroup;
+			children = (
+				CED6817C23EECCB3006C93B2 /* StructsTests.swift */,
+				CED6817E23EECCB3006C93B2 /* Info.plist */,
+			);
+			path = StructsTests;
+			sourceTree = "<group>";
+		};
 		CEF37D3323EAEC44008CA8FE = {
 			isa = PBXGroup;
 			children = (
 				CEF37D3E23EAEC44008CA8FE /* On The Map */,
 				CED6815323EE70B4006C93B2 /* On The MapTests */,
+				CED6817B23EECCB3006C93B2 /* StructsTests */,
 				CEF37D3D23EAEC44008CA8FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -166,6 +203,7 @@
 			children = (
 				CEF37D3C23EAEC44008CA8FE /* On The Map.app */,
 				CED6815223EE70B4006C93B2 /* On The MapTests.xctest */,
+				CED6817A23EECCB3006C93B2 /* StructsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,6 +241,24 @@
 			productReference = CED6815223EE70B4006C93B2 /* On The MapTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		CED6817923EECCB3006C93B2 /* StructsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CED6818123EECCB3006C93B2 /* Build configuration list for PBXNativeTarget "StructsTests" */;
+			buildPhases = (
+				CED6817623EECCB3006C93B2 /* Sources */,
+				CED6817723EECCB3006C93B2 /* Frameworks */,
+				CED6817823EECCB3006C93B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CED6818023EECCB3006C93B2 /* PBXTargetDependency */,
+			);
+			name = StructsTests;
+			productName = StructsTests;
+			productReference = CED6817A23EECCB3006C93B2 /* StructsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CEF37D3B23EAEC44008CA8FE /* On The Map */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEF37D5023EAEC46008CA8FE /* Build configuration list for PBXNativeTarget "On The Map" */;
@@ -234,6 +290,10 @@
 						CreatedOnToolsVersion = 11.3;
 						TestTargetID = CEF37D3B23EAEC44008CA8FE;
 					};
+					CED6817923EECCB3006C93B2 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = CEF37D3B23EAEC44008CA8FE;
+					};
 					CEF37D3B23EAEC44008CA8FE = {
 						CreatedOnToolsVersion = 11.3;
 					};
@@ -254,12 +314,20 @@
 			targets = (
 				CEF37D3B23EAEC44008CA8FE /* On The Map */,
 				CED6815123EE70B4006C93B2 /* On The MapTests */,
+				CED6817923EECCB3006C93B2 /* StructsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CED6815023EE70B4006C93B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED6817823EECCB3006C93B2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -287,10 +355,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CED6817623EECCB3006C93B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED6817D23EECCB3006C93B2 /* StructsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEF37D3823EAEC44008CA8FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED6817523EECB7F006C93B2 /* SessionFromUdacity.swift in Sources */,
 				CED6813F23EE5A8C006C93B2 /* LoginViewController.swift in Sources */,
 				CEF37D4023EAEC44008CA8FE /* AppDelegate.swift in Sources */,
 				CED6817123EE9E25006C93B2 /* ErrorResonse.swift in Sources */,
@@ -299,6 +376,8 @@
 				CED6816B23EE7CB1006C93B2 /* PostStudentBody.swift in Sources */,
 				CED6813823EE3BC6006C93B2 /* StudentClient.swift in Sources */,
 				CED6816D23EE8D02006C93B2 /* StudentApiCaller.swift in Sources */,
+				CED6818523EECFA3006C93B2 /* PostSessionFromUdacityBody.swift in Sources */,
+				CED6817323EEAA2F006C93B2 /* ModifyStudentResponse.swift in Sources */,
 				CE169A1823EC3B6D0065A784 /* MapViewController.swift in Sources */,
 				CE169A1C23EC3BAF0065A784 /* AddLocationViewController.swift in Sources */,
 				CEF37D4223EAEC44008CA8FE /* SceneDelegate.swift in Sources */,
@@ -313,6 +392,11 @@
 			isa = PBXTargetDependency;
 			target = CEF37D3B23EAEC44008CA8FE /* On The Map */;
 			targetProxy = CED6815723EE70B4006C93B2 /* PBXContainerItemProxy */;
+		};
+		CED6818023EECCB3006C93B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEF37D3B23EAEC44008CA8FE /* On The Map */;
+			targetProxy = CED6817F23EECCB3006C93B2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -367,6 +451,44 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andalus.On-The-MapTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/On The Map.app/On The Map";
+			};
+			name = Release;
+		};
+		CED6818223EECCB3006C93B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = StructsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.andalus.StructsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/On The Map.app/On The Map";
+			};
+			name = Debug;
+		};
+		CED6818323EECCB3006C93B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = StructsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.andalus.StructsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -530,6 +652,15 @@
 			buildConfigurations = (
 				CED6815A23EE70B4006C93B2 /* Debug */,
 				CED6815B23EE70B4006C93B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CED6818123EECCB3006C93B2 /* Build configuration list for PBXNativeTarget "StructsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED6818223EECCB3006C93B2 /* Debug */,
+				CED6818323EECCB3006C93B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

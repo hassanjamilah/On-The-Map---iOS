@@ -40,7 +40,7 @@ class On_The_MapTests: XCTestCase {
         wait(for: [promise], timeout: 5)
     }
     
-    
+    //MARK: Test posting new Student
     func testPostNewStudent(){
         let promise = expectation(description: "Status code = 200")
         let  st = Student(createDate: "", firstName: "F1", lastName: "L1", latitude: 2.34332, longitude: 3.34343, mapString: "KL", mediaURL: "https://wwww.google.com", objectID: "", uniqueKey: "", updatedDate: "")
@@ -59,16 +59,42 @@ class On_The_MapTests: XCTestCase {
     }
 
     
-    func testEndPointURL(){
-        let var1 = StudentClient.EndPoints.postStudentInfo.url
-        let var2 = URL(string: StudentClient.EndPoints.baseURL + "/StudentLocation")!
-        XCTAssertEqual(var1, var2 , "Error in getting the url")
-    }
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
+    //MARK: Testing Modifying student data
+    func testModifyStudentData(){
+        let promise = expectation(description: "Success in modifying data")
+        let  st = Student(createDate: "", firstName: "F1", lastName: "L1", latitude: 2.34332, longitude: 3.34343, mapString: "KL", mediaURL: "https://wwww.google.com", objectID: "bov74c3k6uphjft1aplg", uniqueKey: "", updatedDate: "")
+        StudentApiCaller.ModifyStudent(student: st) { (result, response, error) in
+            if let error = error {
+                XCTFail("Error in modifying student \(error.localizedDescription)")
+            }else {
+                print( "Success with result \(result)")
+                promise.fulfill()
+            }
         }
+        wait(for: [promise], timeout: 5)
     }
+    
+
+    //MARK: Check if Student modification applied on the Server
+    func testIfModificationAppliedOnServer(){
+    
+    }
+    
+    
+    //MARK: Test Getting a new Session
+    func testGettingNewSession(){
+        let promise = expectation(description: "Session created successfully.")
+        StudentApiCaller.getNewSession(userName: "", password: "") { (result, response, error) in
+               if let error = error {
+                   XCTFail("Failed to get Session \(error)")
+               }else {
+                   promise.fulfill()
+               }
+           }
+        wait(for: [promise], timeout: 5)
+    }
+    
+   
+    
 
 }

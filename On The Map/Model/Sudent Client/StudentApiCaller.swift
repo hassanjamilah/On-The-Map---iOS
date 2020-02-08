@@ -34,7 +34,7 @@ class StudentApiCaller{
     }
     
     
-  //MARK: Post new student
+    //MARK: Post new student
     /**
      Used to insert new student in the api
      */
@@ -46,16 +46,59 @@ class StudentApiCaller{
         
         StudentClient.taskForPostRequest(url: url, body: body, responseType: PostStudentResponse.self) { (data, response, error) in
             if let data = data {
-              
-                    completion(data , response , nil)
-                    
-               
+                
+                completion(data , response , nil)
+                
+                
             }else {
                 completion(nil , response , error)
             }
         }
-            
+        
         
     }
     
+    
+    
+    //MARK: Modify student data
+    /**
+     
+     */
+    class func ModifyStudent(student:Student , completion:@escaping(ModifyStudentResponse? , URLResponse? , Error?)->Void){
+        let url:URL = StudentClient.EndPoints.modifyStudentInfo(student.objectID).url
+        let body = PostStudentBody(uniqueKey: student.uniqueKey, firstName: student.firstName, lastName: student.lastName, mapString: student.mapString, mediaURL: student.mediaURL, latitude: student.latitude, longitude: student.longitude)
+        
+        StudentClient.taskForPutRequest(url: url, body: body, responseType: ModifyStudentResponse.self) { (data, response, error) in
+            DispatchQueue.main.async {
+                if let data = data{
+                    completion(data , response , nil)
+                }else {
+                    completion(nil , response , error)
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    //MARK: Get new Udacity Session
+    /**
+     Get a new session form the Udacity API
+     */
+    class func getNewSession( userName:String ,  password:String , completion:@escaping(SessionFromUdacity? , URLResponse? , Error?)->Void){
+        let url = StudentClient.EndPoints.postNewSession.url
+        let accountInfo = PostSessionFromUdacityBody.AccountInfo(userName: userName, password: password)
+        let body = PostSessionFromUdacityBody(udacity: accountInfo)
+        StudentClient.taskForPostRequest(url: url, body: body, responseType: SessionFromUdacity.self) { (data, response, error) in
+            DispatchQueue.main.async {
+                if let data = data {
+                    completion(data , response , nil)
+                }else {
+                    completion(nil , response , nil )
+                }
+            }
+            
+        }
+    }
 }

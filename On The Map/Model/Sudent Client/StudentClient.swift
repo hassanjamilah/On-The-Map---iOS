@@ -10,6 +10,7 @@ import Foundation
 
 class  StudentClient {
     
+    //MARK: Error Messages
     enum ErrorMsgs{
         case errorParsingData(String)
         case errorParsingJson(String)
@@ -29,18 +30,22 @@ class  StudentClient {
         
     }
     
+    
+    //MARK: The Endpoints enumeration
     enum EndPoints{
         static let baseURL = "https://onthemap-api.udacity.com/v1"
         
         case studentLocation (Int , Int , String , String)
         case postStudentInfo
+        case modifyStudentInfo(String)
+        case postNewSession
         
         var queryString:String{
             switch self {
             case .studentLocation(let limit  ,let escape ,let order ,let uniqueKey):
                 var query = ""
                 if limit != 0 {
-                   query += "limit=\(limit)"
+                    query += "limit=\(limit)"
                 }
                 if escape != 0 {
                     query += "&skip=\(escape)"
@@ -56,11 +61,23 @@ class  StudentClient {
                 }else {
                     return EndPoints.baseURL + "/StudentLocation?\(query)"
                 }
-               
+                
                 
             case .postStudentInfo:
                 return EndPoints.baseURL + "/StudentLocation"
+                
+            case .modifyStudentInfo(let objectID):
+                return EndPoints.baseURL + "/StudentLocation/\(objectID)"
+                
+            case .postNewSession:
+                return EndPoints.baseURL + "/session"
+                
             }
+            
+            
+            
+            
+            
             
         }
         
@@ -120,7 +137,6 @@ class  StudentClient {
             DispatchQueue.main.async {
                 completionHandler(nil , nil , error)
             }
-            
         }
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -130,44 +146,73 @@ class  StudentClient {
                 return
             }
             do{
-                 print ((response as! HTTPURLResponse).statusCode )
-                print (data)
-                print (String(data: data, encoding: .utf8)!)
-                print (try! JSONDecoder().decode(PostStudentBody.self, from: request.httpBody!))
                 let result  = try JSONDecoder().decode(ResponseType.self, from: data)
-               
                 completionHandler(result , response , nil)
                 print (ErrorMsgs.success("in type : \(ResponseType.Type.self) \(result)"))
             }catch{
                 if  let newError = try? JSONDecoder().decode(ErrorRespons.self, from: data){
-                   
-                   completionHandler(nil , response , newError)
+                    completionHandler(nil , response , newError)
                 }else {
                     let stringData = String(data: data , encoding: .utf8)!
                     print (ErrorMsgs.errorParsingJson(" in type :\(ResponseType.Type.self) with erorr : \(error.localizedDescription) data is : \(stringData)"))
                     completionHandler(nil , response , error)
                 }
-              
+                
             }
         }
         task.resume()
         return task
-       
+        
     }
     
     
-    class func taskForPutRequest<ResponseType:Decodable , RequestType:Encodable>(url:URL , body:RequestType , responseType:ResponseType.Type , completionHandler:(ResponseType? , Error?)->Void)->URLSessionTask{
+    class func taskForPutRequest<ResponseType:Decodable , RequestType:Encodable>(url:URL , body:RequestType , responseType:ResponseType.Type , completionHandler:@escaping(ResponseType? ,URLResponse?  , Error?)->Void)->URLSessionTask{
+        var request = URLRequest(url: url)
+        request.httpMethod="PUT"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        do{
+            let body = try JSONEncoder().encode(body)
+            request.httpBody = body
+        }catch{
+            print (ErrorMsgs.errorParsingJson("for type \(RequestType.Type.self)"))
+            completionHandler(nil , nil , error)
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                print (ErrorMsgs.errorParsingData("in type : \(ResponseType.Type.self)"))
+                completionHandler(nil , response , error)
+                return
+            }
+            do{
+                let dataResult = String(data: data, encoding: .utf8)!
+                print ("The data is : \(dataResult)")
+                let result = try? JSONDecoder().decode(ResponseType.self, from: data)
+                completionHandler(result , response , nil )
+            }catch{
+                print(ErrorMsgs.errorParsingJson( "in tyep :\(ResponseType.Type.self) with error : \(error.localizedDescription)"))
+                completionHandler(nil , response , error)
+                
+            }
+            
+        }
+        
+        task.resume()
+        return task
+    }
+    
+    class func taskForDeleteRequest<ResponseType:Decodable , RequestType:Encodable>(url:URL , body:RequestType , responseType:ResponseType.Type , completionHandler:(ResponseType? , URLResponse?  ,   Error?)->Void)->URLSessionTask{
+        
+        
         return URLSession.shared.dataTask(with: url)
     }
     
-    class func taskForDeleteRequest<ResponseType:Decodable , RequestType:Encodable>(url:URL , body:RequestType , responseType:ResponseType.Type , completionHandler:(ResponseType? , Error?)->Void)->URLSessionTask{
-        return URLSession.shared.dataTask(with: url)
-    }
     
-   
     class func  getCompletionHandlerInMainThread<ResponseType: Decodable>(handler:(ResponseType? , URLResponse? , Error?)->Void){
         
     }
     
-   
+    
+    
+    
 }
