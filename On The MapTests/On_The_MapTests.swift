@@ -84,7 +84,7 @@ class On_The_MapTests: XCTestCase {
     //MARK: Test Getting a new Session
     func testGettingNewSession(){
         let promise = expectation(description: "Session created successfully.")
-        StudentApiCaller.getNewSession(userName: "", password: "") { (result, response, error) in
+        StudentApiCaller.getNewSession(userName: "hassanjamilahj@outlook.com", password: "gugq849n") { (result, response, error) in
                if let error = error {
                    XCTFail("Failed to get Session \(error)")
                }else {

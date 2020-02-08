@@ -90,7 +90,12 @@ class StudentApiCaller{
         let url = StudentClient.EndPoints.postNewSession.url
         let accountInfo = PostSessionFromUdacityBody.AccountInfo(userName: userName, password: password)
         let body = PostSessionFromUdacityBody(udacity: accountInfo)
-        StudentClient.taskForPostRequest(url: url, body: body, responseType: SessionFromUdacity.self) { (data, response, error) in
+        
+       
+        
+        
+        
+        StudentClient.taskForPostRequest(url: url ,  body: body, responseType: SessionFromUdacity.self) { (data, response, error) in
             DispatchQueue.main.async {
                 if let data = data {
                     completion(data , response , nil)

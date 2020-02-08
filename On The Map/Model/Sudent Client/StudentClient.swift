@@ -39,6 +39,7 @@ class  StudentClient {
         case postStudentInfo
         case modifyStudentInfo(String)
         case postNewSession
+        case deleteSession
         
         var queryString:String{
             switch self {
@@ -71,7 +72,9 @@ class  StudentClient {
                 
             case .postNewSession:
                 return EndPoints.baseURL + "/session"
-                
+            
+            case .deleteSession:
+                return EndPoints.baseURL + "/session"
             }
             
             
@@ -127,6 +130,7 @@ class  StudentClient {
         
         print ("The url for the post request is : \(url)")
         var request = URLRequest(url: url)
+        request.addValue("applicaiton/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod="POST"
         do{
@@ -201,10 +205,34 @@ class  StudentClient {
         return task
     }
     
-    class func taskForDeleteRequest<ResponseType:Decodable , RequestType:Encodable>(url:URL , body:RequestType , responseType:ResponseType.Type , completionHandler:(ResponseType? , URLResponse?  ,   Error?)->Void)->URLSessionTask{
+    class func taskForDeleteRequest<ResponseType:Decodable , RequestType:Encodable>(url:URL , body:RequestType , responseType:ResponseType.Type , completionHandler:@escaping(ResponseType? , URLResponse?  ,   Error?)->Void)->URLSessionTask{
         
+        var request = URLRequest(url: url)
+        request.httpMethod="DELETE"
         
-        return URLSession.shared.dataTask(with: url)
+        var xsrfCookie:HTTPCookie? = nil
+        let cookieStorage = HTTPCookieStorage.shared
+        for cookie in cookieStorage.cookies!{
+            if cookie.name == "XSRF-TOKEN" {
+                xsrfCookie  = cookie
+            }
+        }
+        
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                completionHandler(nil , response , error)
+            }else {
+                
+                let newData = data?.subdata(in: (5..<data!.count))
+                print (String(data:newData! , encoding: .utf8)!)
+            }
+        }
+        
+        task.resume()
+        return task
     }
     
     
