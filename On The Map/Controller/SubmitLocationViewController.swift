@@ -24,6 +24,9 @@ class SubmitLocationViewController: UIViewController , UITextFieldDelegate {
     }
     
 
+    /**
+     View the location on the map
+     */
     func viewLocation(){
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
@@ -33,6 +36,8 @@ class SubmitLocationViewController: UIViewController , UITextFieldDelegate {
         
     }
 
+    
+    //MARK: UI Actions
     @IBAction func submitButtonAction(_ sender: Any) {
         let student = Student(createDate: "\(Date())", firstName: "Hani", lastName: "Abed", latitude: coordinate.latitude, longitude: coordinate.longitude, mapString: mapString, mediaURL: urlTextField.text!, objectID: "", uniqueKey: "3432", updatedDate: "")
         

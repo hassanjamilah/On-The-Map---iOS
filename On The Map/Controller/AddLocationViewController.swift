@@ -9,18 +9,20 @@
 import UIKit
 import MapKit
 class AddLocationViewController: UIViewController , UITextFieldDelegate {
-
+    
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var addLocationTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         loadingIndicator.isHidden = true
-       // addLocationTextField.attributedPlaceholder = NSAttributedString(string: "Enter Your Location Here", attributes: [NSAttributedString.Key.foregroundColor:UIColor.white])
+        
     }
     
-
+    
+    
+    //MARK: UI Actions
     @IBAction func findLocationButtonAction(_ sender: Any) {
         
         let value = locationTextField.text!
@@ -42,6 +44,32 @@ class AddLocationViewController: UIViewController , UITextFieldDelegate {
     }
     
     
+    
+    
+    
+    
+    
+    
+    
+    //MARK: Text Field Delegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        findLocationButtonAction(textField)
+        return true
+    }
+    
+    func showLoadingIndicator (value:Bool){
+        loadingIndicator.isHidden = !value
+        if value {
+            
+            loadingIndicator.startAnimating()
+        }else {
+            loadingIndicator.stopAnimating()
+        }
+    }
+    
+    
+    //MARK: Helper Functions
     func findLocation (location:String , completionHandler:@escaping(CLLocationCoordinate2D? , Error?)->Void){
         showLoadingIndicator(value: true)
         let geocoder = CLGeocoder()
@@ -53,26 +81,6 @@ class AddLocationViewController: UIViewController , UITextFieldDelegate {
                 return
             }
             completionHandler(clPlaceMark.first?.location?.coordinate , nil )
-        }
-    }
-
-    
-    
-    
-    //MARK: Text Field Delegate
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        findLocationButtonAction(textField)
-        return true
-    }
-
-    func showLoadingIndicator (value:Bool){
-        loadingIndicator.isHidden = !value
-        if value {
-            
-            loadingIndicator.startAnimating()
-        }else {
-            loadingIndicator.stopAnimating()
         }
     }
 }

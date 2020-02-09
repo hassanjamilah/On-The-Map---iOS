@@ -23,7 +23,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginIndicator.isHidden  = true
-        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:  "dismissKeyboard")
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:  #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
@@ -33,12 +33,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButtonAction(_ sender: Any) {
         
   
-        handleLoginIndicators(value: true)
+        
         let userName = emailTextField.text!
         let password = passwordTextField.text!
         if UIHelper.checkEmptyField(value: userName, msg: .emptyUserName, originalViewController: self){return}
         if UIHelper.checkEmptyField(value: password, msg: .emptyPassword, originalViewController: self){return}
-        
+        handleLoginIndicators(value: true)
         StudentApiCaller.getNewSession(userName: userName, password: password) { (success, res, error) in
             self.handleLoginIndicators(value: false)
             if success{
@@ -52,10 +52,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             
         }
-        
-        
-       
-        
     }
     
     @IBAction func signUpButtonAction(_ sender: Any) {
@@ -66,7 +62,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    
+    //MARK: Helper Functions
     func handleLoginIndicators(value:Bool){
         loginIndicator.isHidden = !value
             loginIndicator.startAnimating()
@@ -81,9 +77,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @objc func dismissKeyboard(){
-        view.endEditing(true)
-    }
-    
+   
     
 }

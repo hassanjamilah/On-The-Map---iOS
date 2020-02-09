@@ -31,13 +31,18 @@ class UIHelper{
     }
     
     
+    /**
+     Show alert dialog
+     */
     class func showAlertDialog(msg:UIErrorMsgs , title:UIErrorTitles ,orignialViewController:UIViewController){
         let controller = UIAlertController(title: title.rawValue, message: msg.rawValue, preferredStyle: .alert)
         controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         orignialViewController.present(controller, animated: true, completion: nil)
     }
     
-    
+    /**
+     Check if the enterd value is null to display error message
+     */
     class func checkEmptyField(value:String , msg:UIErrorMsgs , originalViewController:UIViewController )->Bool{
         if (value.trimmingCharacters(in: .whitespaces) == ""){
             showAlertDialog(msg: msg, title: .emptyField, orignialViewController: originalViewController)

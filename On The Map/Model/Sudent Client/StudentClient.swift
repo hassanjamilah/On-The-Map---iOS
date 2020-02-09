@@ -2,7 +2,7 @@
 //  StudentClient.swift
 //  On The Map
 //
-//  Created by user on 08/02/2020.
+//  Created by Hassan on 08/02/2020.
 //  Copyright © 2020 Andalus. All rights reserved.
 //
 
@@ -26,8 +26,6 @@ class  StudentClient {
                 return "The request finished successfully \(msg)"
             }
         }
-        
-        
     }
     
     
@@ -74,22 +72,16 @@ class  StudentClient {
                 
             case .postNewSession:
                 return EndPoints.baseURL + "/session"
-            
+                
             case .deleteSession:
                 return EndPoints.baseURL + "/session"
-            
+                
             case .getUserInfo(let userID):
                 return EndPoints.baseURL + "/users/\(userID)"
             case .udacitySignUp:
                 return "https://auth.udacity.com/sign-up?next=https://classroom.udacity.com/authenticated"
-            
+                
             }
-            
-            
-            
-            
-            
-            
         }
         
         var url:URL{
@@ -160,7 +152,7 @@ class  StudentClient {
             do{
                 var newData:Data
                 if isEncodedData{
-                     newData = data.subdata(in: (5..<data.count))
+                    newData = data.subdata(in: (5..<data.count))
                 }else {
                     newData  = data
                 }
@@ -205,7 +197,7 @@ class  StudentClient {
             do{
                 let dataResult = String(data: data, encoding: .utf8)!
                 print ("The data is : \(dataResult)")
-                let result = try? JSONDecoder().decode(ResponseType.self, from: data)
+                let result = try JSONDecoder().decode(ResponseType.self, from: data)
                 completionHandler(result , response , nil )
             }catch{
                 print(ErrorMsgs.errorParsingJson( "in tyep :\(ResponseType.Type.self) with error : \(error.localizedDescription)"))
@@ -241,7 +233,7 @@ class  StudentClient {
             }else {
                 
                 //let newData = data?.subdata(in: (5..<data!.count))
-               // print (String(data:newData! , encoding: .utf8)!)
+                // print (String(data:newData! , encoding: .utf8)!)
                 completionHandler(true , response , nil)
             }
         }
