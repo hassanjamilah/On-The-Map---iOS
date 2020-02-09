@@ -18,15 +18,18 @@ class StudentApiCaller{
     class  func getStudents (limit:Int , skip:Int , order:String  , uniqueKey:String , completion:@escaping([Student] ,URLResponse, Error?)->Void){
         let url:URL = StudentClient.EndPoints.studentLocation(limit, skip, order, uniqueKey).url
         _ = StudentClient.taskForGetRequest(url: url, responseType: [String:[Student]].self) { (data,response , error) in
-            guard let data = data else {
-                print (StudentClient.ErrorMsgs.errorParsingData(" in get Studendts for error : \(String(describing: error))"))
-                completion([] ,response, error)
-                return
-            }
-            if let finalData = data["results"]{
-                completion(finalData , response , nil)
-            }else {
-                completion([] , response , nil)
+            DispatchQueue.main.async {
+                
+                guard let data = data else {
+                    print (StudentClient.ErrorMsgs.errorParsingData(" in get Studendts for error : \(String(describing: error))"))
+                    completion([] ,response, error)
+                    return
+                }
+                if let finalData = data["results"]{
+                    completion(finalData , response , nil)
+                }else {
+                    completion([] , response , nil)
+                }
             }
             
         }
@@ -43,18 +46,16 @@ class StudentApiCaller{
         let uniqueKey  = "\(Int.random(in: 1...1000000))"
         let body = PostStudentBody(uniqueKey: uniqueKey, firstName: student.firstName, lastName: student.lastName, mapString: student.mapString, mediaURL: student.mediaURL, latitude: student.latitude, longitude: student.longitude)
         
-        
         StudentClient.taskForPostRequest(url: url, body: body, responseType: PostStudentResponse.self) { (data, response, error) in
-            if let data = data {
-                
-                completion(data , response , nil)
-                
-                
-            }else {
-                completion(nil , response , error)
+            DispatchQueue.main.async {
+                if let data = data {
+                    completion(data , response , nil)
+                }else {
+                    completion(nil , response , error)
+                }
             }
+            
         }
-        
         
     }
     
@@ -107,7 +108,7 @@ class StudentApiCaller{
     /**
      Get the user info from the udacity api
      */
-    class func getUserInfo(String userId , completion:()->Void ){
+    class func getUserInfo( userId:String , completion:()->Void ){
         
     }
 }
