@@ -27,6 +27,7 @@
 		CED6818B23EFE283006C93B2 /* SubmitLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6818A23EFE283006C93B2 /* SubmitLocationViewController.swift */; };
 		CED681B023EFF576006C93B2 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = CED681AF23EFF576006C93B2 /* FacebookLogin */; };
 		CED681B323EFF738006C93B2 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = CED681B223EFF738006C93B2 /* FacebookCore */; };
+		CED681B523F02246006C93B2 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED681B423F02246006C93B2 /* MainTabViewController.swift */; };
 		CEF37D4023EAEC44008CA8FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF37D3F23EAEC44008CA8FE /* AppDelegate.swift */; };
 		CEF37D4223EAEC44008CA8FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF37D4123EAEC44008CA8FE /* SceneDelegate.swift */; };
 		CEF37D4723EAEC44008CA8FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF37D4523EAEC44008CA8FE /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 		CED6818623EEE462006C93B2 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		CED6818823EF8835006C93B2 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		CED6818A23EFE283006C93B2 /* SubmitLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitLocationViewController.swift; sourceTree = "<group>"; };
+		CED681B423F02246006C93B2 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		CEF37D3C23EAEC44008CA8FE /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF37D3F23EAEC44008CA8FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF37D4123EAEC44008CA8FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				CED6813E23EE5A8C006C93B2 /* LoginViewController.swift */,
 				CE169A1B23EC3BAF0065A784 /* AddLocationViewController.swift */,
 				CED6818A23EFE283006C93B2 /* SubmitLocationViewController.swift */,
+				CED681B423F02246006C93B2 /* MainTabViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED681B523F02246006C93B2 /* MainTabViewController.swift in Sources */,
 				CED6817523EECB7F006C93B2 /* SessionFromUdacity.swift in Sources */,
 				CED6813F23EE5A8C006C93B2 /* LoginViewController.swift in Sources */,
 				CEF37D4023EAEC44008CA8FE /* AppDelegate.swift in Sources */,

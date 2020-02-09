@@ -10,13 +10,14 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController , MKMapViewDelegate {
-    var currentStudentIndex = 0
+    static var currentStudentIndex = 0
     var allStudents = [Student]()
-
+    var studentCoordinate:CLLocationCoordinate2D!
     
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         mapView.delegate = self
         loadData()
     }
@@ -27,8 +28,9 @@ class MapViewController: UIViewController , MKMapViewDelegate {
     }
    
     func loadData(){
-        StudentApiCaller.getStudents(limit: 40, skip: 0, order: "-updatedAt", uniqueKey: "") { (students, response, error) in
-            self.allStudents = students
+        StudentApiCaller.getStudents(limit: 100, skip: 0, order: "-updatedAt", uniqueKey: "") { (students, response, error) in
+            Student.updateSharedAllStudents(students: students)
+            self.allStudents = Student.getSharedAllStudents()
             
             var pins = [MKPointAnnotation]()
             for student in self.allStudents{
@@ -52,7 +54,7 @@ class MapViewController: UIViewController , MKMapViewDelegate {
 
     
     func gotoStudent(){
-        let student = allStudents[currentStudentIndex]
+        let student = allStudents[MapViewController.currentStudentIndex]
         gotoLocation(lat: student.latitude, long: student.longitude)
     }
     
@@ -72,15 +74,21 @@ class MapViewController: UIViewController , MKMapViewDelegate {
     }
   
     
+    @IBAction func logOutButtonAction(_ sender: Any) {
+        StudentApiCaller.performLogOut(originalController: self)
+        
+    }
+    
+    
     @IBAction func rightHandButtonAction(_ sender: Any) {
-        currentStudentIndex += 1
-        if currentStudentIndex >= allStudents.count {currentStudentIndex = 0}
+        MapViewController.currentStudentIndex += 1
+        if MapViewController.currentStudentIndex >= allStudents.count {MapViewController.currentStudentIndex = 0}
         gotoStudent()
     }
     
     @IBAction func leftHandButtonAction(_ sender: Any) {
-        currentStudentIndex -= 1
-        if currentStudentIndex <= 0 {currentStudentIndex = allStudents.count - 1}
+        MapViewController.currentStudentIndex -= 1
+        if MapViewController.currentStudentIndex <= 0 {MapViewController.currentStudentIndex = allStudents.count - 1}
         gotoStudent()
     }
     //MARK: The Map View Delegate

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 class StudentApiCaller{
     
     //MARK: Get Students
@@ -110,5 +110,21 @@ class StudentApiCaller{
      */
     class func getUserInfo( userId:String , completion:()->Void ){
         
+    }
+    
+    
+    //MARK: Perform Log out
+    class func performLogOut(originalController:UIViewController){
+        StudentClient.taskForDeleteRequest(url: StudentClient.EndPoints.deleteSession.url) { (success, response, error) in
+            DispatchQueue.main.async {
+                
+                if success {
+                    let controller = originalController.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
+                    originalController.present(controller, animated: true, completion: nil)
+                }else {
+                    UIHelper.showAlertDialog(msg: .errorInLogOut, title: .errorInLogOut, orignialViewController: originalController)
+                }
+            }
+        }
     }
 }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MapKit
 class LocationsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource   {
     
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
@@ -32,7 +32,10 @@ class LocationsViewController: UIViewController , UITableViewDelegate , UITableV
         loadData()
     }
     
-    
+    @IBAction func logOutButtonAction(_ sender: Any) {
+        StudentApiCaller.performLogOut(originalController: self)
+           
+       }
     
     //MARK: Students Table Delegate
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -56,6 +59,18 @@ class LocationsViewController: UIViewController , UITableViewDelegate , UITableV
         return cell
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+       /* let controller = self.storyboard!.instantiateViewController(identifier: "MainTabViewController") as! MainTabViewController
+       
+        MapViewController.currentStudentIndex = indexPath.row
+        present(controller, animated: true, completion: nil)*/
+        
+        
+        UIApplication.shared.open(URL(string: allStudents[indexPath.row].mediaURL)!, options: [:], completionHandler: nil)
+        
+    }
     
     
     
@@ -82,8 +97,13 @@ class LocationsViewController: UIViewController , UITableViewDelegate , UITableV
     //MARK: Helper Functions
     @objc func loadData(){
         handleIndicator(value: true)
-        StudentApiCaller.getStudents(limit: 40, skip: 0, order: "", uniqueKey: "") { (students, response, error) in
-            self.allStudents = students
+        StudentApiCaller.getStudents(limit: 100, skip: 0, order: "", uniqueKey: "") { (students, response, error) in
+            guard error == nil else {
+                UIHelper.showAlertDialog(msg: .errorLoadingLocations, title: .errorLoadingLocations, orignialViewController: self)
+                return
+            }
+            Student.updateSharedAllStudents(students: students)
+            self.allStudents = Student.getSharedAllStudents()
             self.locationsTable.reloadData()
             self.handleIndicator(value: false)
             
