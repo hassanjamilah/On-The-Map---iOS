@@ -32,28 +32,28 @@ class LocationsViewController: UIViewController , UITableViewDelegate , UITableV
         loadData()
     }
     
- 
+    
     
     //MARK: Students Table Delegate
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allStudents.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let imageNum = Int.random(in: (1...4))
         
         let cell = UITableViewCell()
-       let image = UIImage(named: "location\(imageNum)")
+        let image = UIImage(named: "location\(imageNum)")
         let student = allStudents[indexPath.row]
         cell.textLabel!.text = student.firstName + " " + student.lastName
         cell.imageView?.contentMode = .scaleAspectFit
         cell.imageView?.image = image
-               return cell
+        return cell
     }
     
     
@@ -67,7 +67,7 @@ class LocationsViewController: UIViewController , UITableViewDelegate , UITableV
         if value {
             indicatorView.isHidden = false
             indicatorView.startAnimating()
-           
+            
         }else {
             indicatorView.isHidden = true
             indicatorView.stopAnimating()
@@ -82,12 +82,12 @@ class LocationsViewController: UIViewController , UITableViewDelegate , UITableV
     //MARK: Helper Functions
     @objc func loadData(){
         handleIndicator(value: true)
-               StudentApiCaller.getStudents(limit: 40, skip: 0, order: "", uniqueKey: "") { (students, response, error) in
-                   self.allStudents = students
-                   self.locationsTable.reloadData()
-                   self.handleIndicator(value: false)
-                
-                
-               }
+        StudentApiCaller.getStudents(limit: 40, skip: 0, order: "", uniqueKey: "") { (students, response, error) in
+            self.allStudents = students
+            self.locationsTable.reloadData()
+            self.handleIndicator(value: false)
+            
+            
+        }
     }
 }
