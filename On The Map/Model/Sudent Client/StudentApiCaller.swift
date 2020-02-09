@@ -46,7 +46,7 @@ class StudentApiCaller{
         let uniqueKey  = "\(Int.random(in: 1...1000000))"
         let body = PostStudentBody(uniqueKey: uniqueKey, firstName: student.firstName, lastName: student.lastName, mapString: student.mapString, mediaURL: student.mediaURL, latitude: student.latitude, longitude: student.longitude)
         
-        StudentClient.taskForPostRequest(url: url, body: body, responseType: PostStudentResponse.self) { (data, response, error) in
+        StudentClient.taskForPostRequest(url: url, body: body, responseType: PostStudentResponse.self, isEncodedData: false) { (data, response, error) in
             DispatchQueue.main.async {
                 if let data = data {
                     completion(data , response , nil)
@@ -87,16 +87,16 @@ class StudentApiCaller{
     /**
      Get a new session form the Udacity API
      */
-    class func getNewSession( userName:String ,  password:String , completion:@escaping(SessionFromUdacity? , URLResponse? , Error?)->Void){
+    class func getNewSession( userName:String ,  password:String , completion:@escaping(Bool , URLResponse? , Error?)->Void){
         let url = StudentClient.EndPoints.postNewSession.url
         let accountInfo = PostSessionFromUdacityBody.AccountInfo(userName: userName, password: password)
         let body = PostSessionFromUdacityBody(udacity: accountInfo)
-        StudentClient.taskForPostRequest(url: url ,  body: body, responseType: SessionFromUdacity.self) { (data, response, error) in
+        StudentClient.taskForPostRequest(url: url ,  body: body, responseType: SessionFromUdacity.self, isEncodedData: true) { (data, response, error) in
             DispatchQueue.main.async {
-                if let data = data {
-                    completion(data , response , nil)
+                if data != nil {
+                    completion(true , response , nil)
                 }else {
-                    completion(nil , response , nil )
+                    completion(false , response , nil )
                 }
             }
             

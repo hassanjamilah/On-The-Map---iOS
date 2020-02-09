@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -19,28 +19,48 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     
     //MARK: Controls Actions
     
     @IBAction func loginButtonAction(_ sender: Any) {
+         performSegue(withIdentifier: "completeLogin", sender: nil)
+        return
+        
+        //============== delete before this
         let userName = emailTextField.text!
         let password = passwordTextField.text!
         if UIHelper.checkEmptyField(value: userName, msg: .emptyUserName, originalViewController: self){return}
         if UIHelper.checkEmptyField(value: password, msg: .emptyPassword, originalViewController: self){return}
         
+       /* StudentApiCaller.getNewSession(userName: userName, password: password) { (success, res, error) in
+            if success{
+                self.dismiss(animated: true) {
+                    let controller = MapViewController()
+                    self.present(controller, animated: true, completion: nil)
+                }
+                
+                
+            }else {
+                UIHelper.showAlertDialog(msg: .errorInLogin, title: .errorLoginTitle, orignialViewController: self)
+            }
+        }*/
         
         
+       
         
     }
     
     @IBAction func signUpButtonAction(_ sender: Any) {
+        UIApplication.shared.open(StudentClient.EndPoints.udacitySignUp.url, options: [:], completionHandler: nil)
     }
     
     @IBAction func loginWithFaceBookAction(_ sender: Any) {
     }
+    
+    
     
     
     

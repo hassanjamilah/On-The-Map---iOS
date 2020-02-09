@@ -41,6 +41,7 @@ class  StudentClient {
         case postNewSession
         case deleteSession
         case getUserInfo(String)
+        case udacitySignUp
         
         var queryString:String{
             switch self {
@@ -79,6 +80,8 @@ class  StudentClient {
             
             case .getUserInfo(let userID):
                 return EndPoints.baseURL + "/users/\(userID)"
+            case .udacitySignUp:
+                return "https://auth.udacity.com/sign-up?next=https://classroom.udacity.com/authenticated"
             
             }
             
@@ -131,7 +134,7 @@ class  StudentClient {
     
     
     
-    class func taskForPostRequest<ResponseType: Decodable , RequestType:Encodable>(url:URL , body:RequestType , responseType:ResponseType.Type , completionHandler:@escaping(ResponseType? ,URLResponse? ,  Error?)->Void)->URLSessionTask{
+    class func taskForPostRequest<ResponseType: Decodable , RequestType:Encodable>(url:URL , body:RequestType , responseType:ResponseType.Type , isEncodedData:Bool , completionHandler:@escaping(ResponseType? ,URLResponse? ,  Error?)->Void)->URLSessionTask{
         
         print ("The url for the post request is : \(url)")
         var request = URLRequest(url: url)
@@ -155,7 +158,13 @@ class  StudentClient {
                 return
             }
             do{
-                let result  = try JSONDecoder().decode(ResponseType.self, from: data)
+                var newData:Data
+                if isEncodedData{
+                     newData = data.subdata(in: (5..<data.count))
+                }else {
+                    newData  = data
+                }
+                let result  = try JSONDecoder().decode(ResponseType.self, from:newData )
                 completionHandler(result , response , nil)
                 print (ErrorMsgs.success("in type : \(ResponseType.Type.self) \(result)"))
             }catch{

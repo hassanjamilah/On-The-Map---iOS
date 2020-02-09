@@ -10,9 +10,9 @@
         <!--Locations Table-->
         <scene sceneID="USv-O8-ySj">
             <objects>
-                <viewController id="lg0-wd-yNu" userLabel="Locations Table" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="lg0-wd-yNu" userLabel="Locations Table" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uOe-SG-1tD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="FPK-nW-mSq"/>
@@ -28,19 +28,19 @@
         <!--Map View-->
         <scene sceneID="cNc-pY-8Pf">
             <objects>
-                <viewController id="TtG-Dl-gZ5" userLabel="Map View" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="TtG-Dl-gZ5" userLabel="Map View" customClass="MapViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9pq-kz-G8s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCS-ry-bDx">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
                                     <navigationItem title="Title" id="6VH-3x-Qot"/>
                                 </items>
                             </navigationBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="coK-6A-IC7">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="703"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -79,7 +79,8 @@
         <!--Map And Table Tab Controller-->
         <scene sceneID="Are-zW-SJU">
             <objects>
-                <tabBarController id="HOk-CJ-avW" userLabel="Map And Table Tab Controller" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="fullScreen" id="HOk-CJ-avW" userLabel="Map And Table Tab Controller" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="UMg-C3-3Nn"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="huN-RT-xN5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -140,7 +141,7 @@
                                     <constraint firstAttribute="height" constant="40" id="h3U-JV-NGa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Xif-hf-BDH"/>
                                 </connections>
@@ -220,6 +221,7 @@
                         <outlet property="loginWithFacebookButton" destination="qUR-f3-1h3" id="aNJ-6Z-4eO"/>
                         <outlet property="passwordTextField" destination="U6B-ad-47s" id="8tm-hv-EoO"/>
                         <outlet property="signUpButton" destination="M9b-rh-MLH" id="Ibz-qv-vta"/>
+                        <segue destination="HOk-CJ-avW" kind="show" identifier="completeLogin" id="W8n-6c-DMh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
