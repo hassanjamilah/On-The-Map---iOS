@@ -39,6 +39,7 @@ class SubmitLocationViewController: UIViewController , UITextFieldDelegate {
         StudentApiCaller.postNewStudent(student: student) { (rsult, reponse, error) in
             guard error == nil  else {
                 print ("Error posting a new location")
+                UIHelper.showAlertDialog(msg: .errorInPostingLocation, title: .errorInPostingLocation, orignialViewController: self)
                 return
             }
             print ("Successfully added new location")

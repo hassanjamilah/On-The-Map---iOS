@@ -10,11 +10,13 @@ import UIKit
 import MapKit
 class AddLocationViewController: UIViewController , UITextFieldDelegate {
 
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var addLocationTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadingIndicator.isHidden = true
        // addLocationTextField.attributedPlaceholder = NSAttributedString(string: "Enter Your Location Here", attributes: [NSAttributedString.Key.foregroundColor:UIColor.white])
     }
     
@@ -41,8 +43,10 @@ class AddLocationViewController: UIViewController , UITextFieldDelegate {
     
     
     func findLocation (location:String , completionHandler:@escaping(CLLocationCoordinate2D? , Error?)->Void){
+        showLoadingIndicator(value: true)
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(location) { (clPlaceMark, error) in
+            self.showLoadingIndicator(value: false)
             guard let clPlaceMark = clPlaceMark else {
                 completionHandler(nil , error)
                 print ("Error in location")
@@ -60,5 +64,15 @@ class AddLocationViewController: UIViewController , UITextFieldDelegate {
         textField.resignFirstResponder()
         findLocationButtonAction(textField)
         return true
+    }
+
+    func showLoadingIndicator (value:Bool){
+        loadingIndicator.isHidden = !value
+        if value {
+            
+            loadingIndicator.startAnimating()
+        }else {
+            loadingIndicator.stopAnimating()
+        }
     }
 }

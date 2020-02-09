@@ -131,6 +131,10 @@
                                     <outlet property="delegate" destination="8mX-YP-loC" id="QaI-Ck-xFc"/>
                                 </connections>
                             </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="BZk-Vi-z6p">
+                                <rect key="frame" x="197" y="293" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0D-IM-gQD">
                                 <rect key="frame" x="145.5" y="255" width="123" height="30"/>
                                 <color key="backgroundColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -158,6 +162,7 @@
                     <navigationItem key="navigationItem" id="PIy-qv-E7l"/>
                     <connections>
                         <outlet property="addLocationTextField" destination="M1P-g9-lxn" id="oIz-ta-wMs"/>
+                        <outlet property="loadingIndicator" destination="BZk-Vi-z6p" id="pL4-b2-sSn"/>
                         <outlet property="locationTextField" destination="M1P-g9-lxn" id="o31-pf-c7M"/>
                         <segue destination="NYG-Zc-RSS" kind="show" id="36t-o9-pPV"/>
                     </connections>
@@ -262,11 +267,11 @@
             <objects>
                 <viewController title="Recent Students Locations" modalPresentationStyle="fullScreen" id="cqC-aG-82K" userLabel="Students Table" customClass="LocationsViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pgX-IF-DcY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W77-Mm-7YU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Recent Students" id="4IR-4T-fpx">
                                         <leftBarButtonItems>
@@ -291,7 +296,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cXN-i0-x2n">
-                                <rect key="frame" x="0.0" y="67" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="99" width="414" height="714"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="cqC-aG-82K" id="ldG-oY-FLl"/>
@@ -466,7 +471,7 @@
         <image name="udacity" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W8n-6c-DMh"/>
+        <segue reference="Hjp-tM-gT6"/>
         <segue reference="yMP-x3-6UH"/>
     </inferredMetricsTieBreakers>
 </document>

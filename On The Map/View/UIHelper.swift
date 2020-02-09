@@ -18,6 +18,7 @@ class UIHelper{
         case errorFindingLocation = "Can not find your location.\nPlease try another location"
         case errorLoadingLocations = "Unable to load the locations.\nPlease try to press the refresh button"
         case errorInLogOut = "Unable to log out.\nPlease try again"
+        case errorInPostingLocation = "Unable to post the info.\nPlease try again"
     }
     
     enum UIErrorTitles:String{
@@ -26,6 +27,7 @@ class UIHelper{
         case errorFindingLocation = "Unknown location"
         case errorLoadingLocations = "Error In Loading"
         case errorInLogOut = "Can not log out!"
+        case errorInPostingLocation = "Unable to post"
     }
     
     
