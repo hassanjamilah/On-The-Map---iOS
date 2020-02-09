@@ -22,6 +22,7 @@
 		CED6817523EECB7F006C93B2 /* SessionFromUdacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6817423EECB7F006C93B2 /* SessionFromUdacity.swift */; };
 		CED6817D23EECCB3006C93B2 /* StructsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6817C23EECCB3006C93B2 /* StructsTests.swift */; };
 		CED6818523EECFA3006C93B2 /* PostSessionFromUdacityBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6818423EECFA3006C93B2 /* PostSessionFromUdacityBody.swift */; };
+		CED6818723EEE462006C93B2 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6818623EEE462006C93B2 /* UserInfo.swift */; };
 		CEF37D4023EAEC44008CA8FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF37D3F23EAEC44008CA8FE /* AppDelegate.swift */; };
 		CEF37D4223EAEC44008CA8FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF37D4123EAEC44008CA8FE /* SceneDelegate.swift */; };
 		CEF37D4723EAEC44008CA8FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF37D4523EAEC44008CA8FE /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 		CED6817C23EECCB3006C93B2 /* StructsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructsTests.swift; sourceTree = "<group>"; };
 		CED6817E23EECCB3006C93B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CED6818423EECFA3006C93B2 /* PostSessionFromUdacityBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSessionFromUdacityBody.swift; sourceTree = "<group>"; };
+		CED6818623EEE462006C93B2 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		CEF37D3C23EAEC44008CA8FE /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF37D3F23EAEC44008CA8FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF37D4123EAEC44008CA8FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				CED6817023EE9E25006C93B2 /* ErrorResonse.swift */,
 				CED6817223EEAA2F006C93B2 /* ModifyStudentResponse.swift */,
 				CED6817423EECB7F006C93B2 /* SessionFromUdacity.swift */,
+				CED6818623EEE462006C93B2 /* UserInfo.swift */,
 			);
 			path = "Response Models";
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				CED6813F23EE5A8C006C93B2 /* LoginViewController.swift in Sources */,
 				CEF37D4023EAEC44008CA8FE /* AppDelegate.swift in Sources */,
 				CED6817123EE9E25006C93B2 /* ErrorResonse.swift in Sources */,
+				CED6818723EEE462006C93B2 /* UserInfo.swift in Sources */,
 				CED6813523EE375C006C93B2 /* Student.swift in Sources */,
 				CED6816F23EE8FD2006C93B2 /* PostStudentResponse.swift in Sources */,
 				CED6816B23EE7CB1006C93B2 /* PostStudentBody.swift in Sources */,

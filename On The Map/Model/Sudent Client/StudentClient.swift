@@ -40,6 +40,7 @@ class  StudentClient {
         case modifyStudentInfo(String)
         case postNewSession
         case deleteSession
+        case getUserInfo(String)
         
         var queryString:String{
             switch self {
@@ -75,6 +76,10 @@ class  StudentClient {
             
             case .deleteSession:
                 return EndPoints.baseURL + "/session"
+            
+            case .getUserInfo(let userID):
+                return EndPoints.baseURL + "/users/\(userID)"
+            
             }
             
             
