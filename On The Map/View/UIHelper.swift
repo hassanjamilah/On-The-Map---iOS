@@ -15,11 +15,13 @@ class UIHelper{
         case emptyUserName = "The user name is empty.\nPlease try to fill the user name field"
         case emptyPassword = "The password is empty.\nPlease try to fill the password field"
         case errorInLogin = "The user name or password is incorrect.\nPlease try again"
+        case errorFindingLocation = "Can not find your location.\nPlease try another location"
     }
     
     enum UIErrorTitles:String{
         case emptyField = "Empty Field"
         case errorLoginTitle = "Login info are incorrect"
+        case errorFindingLocation = "Unknown location"
     }
     
     

@@ -24,6 +24,7 @@
 		CED6818523EECFA3006C93B2 /* PostSessionFromUdacityBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6818423EECFA3006C93B2 /* PostSessionFromUdacityBody.swift */; };
 		CED6818723EEE462006C93B2 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6818623EEE462006C93B2 /* UserInfo.swift */; };
 		CED6818923EF8835006C93B2 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6818823EF8835006C93B2 /* UIHelper.swift */; };
+		CED6818B23EFE283006C93B2 /* SubmitLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6818A23EFE283006C93B2 /* SubmitLocationViewController.swift */; };
 		CEF37D4023EAEC44008CA8FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF37D3F23EAEC44008CA8FE /* AppDelegate.swift */; };
 		CEF37D4223EAEC44008CA8FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF37D4123EAEC44008CA8FE /* SceneDelegate.swift */; };
 		CEF37D4723EAEC44008CA8FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF37D4523EAEC44008CA8FE /* Main.storyboard */; };
@@ -70,6 +71,7 @@
 		CED6818423EECFA3006C93B2 /* PostSessionFromUdacityBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSessionFromUdacityBody.swift; sourceTree = "<group>"; };
 		CED6818623EEE462006C93B2 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		CED6818823EF8835006C93B2 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		CED6818A23EFE283006C93B2 /* SubmitLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitLocationViewController.swift; sourceTree = "<group>"; };
 		CEF37D3C23EAEC44008CA8FE /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF37D3F23EAEC44008CA8FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF37D4123EAEC44008CA8FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				CE169A1923EC3B830065A784 /* LocationsViewController.swift */,
 				CE169A1B23EC3BAF0065A784 /* AddLocationViewController.swift */,
 				CED6813E23EE5A8C006C93B2 /* LoginViewController.swift */,
+				CED6818A23EFE283006C93B2 /* SubmitLocationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				CED6818723EEE462006C93B2 /* UserInfo.swift in Sources */,
 				CED6813523EE375C006C93B2 /* Student.swift in Sources */,
 				CED6816F23EE8FD2006C93B2 /* PostStudentResponse.swift in Sources */,
+				CED6818B23EFE283006C93B2 /* SubmitLocationViewController.swift in Sources */,
 				CED6816B23EE7CB1006C93B2 /* PostStudentBody.swift in Sources */,
 				CED6813823EE3BC6006C93B2 /* StudentClient.swift in Sources */,
 				CED6816D23EE8D02006C93B2 /* StudentApiCaller.swift in Sources */,

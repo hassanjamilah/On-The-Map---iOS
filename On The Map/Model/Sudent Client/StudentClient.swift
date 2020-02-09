@@ -219,7 +219,7 @@ class  StudentClient {
         return task
     }
     
-    class func taskForDeleteRequest<ResponseType:Decodable , RequestType:Encodable>(url:URL , body:RequestType , responseType:ResponseType.Type , completionHandler:@escaping(ResponseType? , URLResponse?  ,   Error?)->Void)->URLSessionTask{
+    class func taskForDeleteRequest(url:URL , completionHandler:@escaping(Bool ,URLResponse? , Error?)->Void)->URLSessionTask{
         
         var request = URLRequest(url: url)
         request.httpMethod="DELETE"
@@ -237,11 +237,12 @@ class  StudentClient {
         }
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                completionHandler(nil , response , error)
+                completionHandler(false , response , error)
             }else {
                 
-                let newData = data?.subdata(in: (5..<data!.count))
-                print (String(data:newData! , encoding: .utf8)!)
+                //let newData = data?.subdata(in: (5..<data!.count))
+               // print (String(data:newData! , encoding: .utf8)!)
+                completionHandler(true , response , nil)
             }
         }
         

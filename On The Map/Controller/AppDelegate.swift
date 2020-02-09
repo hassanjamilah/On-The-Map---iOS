@@ -32,6 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        StudentClient.taskForDeleteRequest(url: StudentClient.EndPoints.deleteSession.url) { (success, reponse, error) in
+            if success {
+                print ("Session deleted successfully")
+            }
+        }
+    }
 
 }
 

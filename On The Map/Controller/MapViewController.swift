@@ -12,6 +12,8 @@ import MapKit
 class MapViewController: UIViewController , MKMapViewDelegate {
     var currentStudentIndex = 0
     var allStudents = [Student]()
+
+    
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,7 @@ class MapViewController: UIViewController , MKMapViewDelegate {
     }
    
     func loadData(){
-        StudentApiCaller.getStudents(limit: 40, skip: 0, order: "", uniqueKey: "") { (students, response, error) in
+        StudentApiCaller.getStudents(limit: 40, skip: 0, order: "-updatedAt", uniqueKey: "") { (students, response, error) in
             self.allStudents = students
             
             var pins = [MKPointAnnotation]()
