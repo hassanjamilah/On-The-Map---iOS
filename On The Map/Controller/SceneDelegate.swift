@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  On The Map
 //
-//  Created by user on 05/02/2020.
+//  Created by Hassan on 05/02/2020.
 //  Copyright © 2020 Andalus. All rights reserved.
 //
 
