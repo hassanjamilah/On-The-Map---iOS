@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FacebookLogin
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var imageView: UIImageView!
@@ -20,7 +21,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+    
     }
     
     

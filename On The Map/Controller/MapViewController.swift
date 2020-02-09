@@ -23,6 +23,7 @@ class MapViewController: UIViewController , MKMapViewDelegate {
     
 
     @IBAction func refreshData(_ sender: Any) {
+        loadData()
     }
    
     func loadData(){
