@@ -74,9 +74,17 @@ class MapViewController: UIViewController , MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView{
-            if let urlStr = view.annotation?.subtitle{
-                UIApplication.shared.open(URL(string: urlStr!)!, options: [:], completionHandler: nil)
+            if let annotation = view.annotation {
+                
+                let urlStr:String = annotation.subtitle!!
+                    
+                
+                
+                if urlStr.trimmingCharacters(in: .whitespaces).count > 0 {
+                    UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
+                }
             }
+            
             
         }
         
@@ -92,7 +100,7 @@ class MapViewController: UIViewController , MKMapViewDelegate {
     func loadData(){
         StudentApiCaller.getStudents(limit: 100, skip: 0, order: "-updatedAt", uniqueKey: "") { (students, response, error) in
             Student.allStudents =  students
-         
+            
             
             var pins = [MKPointAnnotation]()
             for student in Student.allStudents{
