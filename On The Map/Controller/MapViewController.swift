@@ -11,7 +11,7 @@ import MapKit
 
 class MapViewController: UIViewController , MKMapViewDelegate {
     static var currentStudentIndex = 0
-    var allStudents = [Student]()
+    
     var studentCoordinate:CLLocationCoordinate2D!
     
     @IBOutlet weak var mapView: MKMapView!
@@ -41,13 +41,13 @@ class MapViewController: UIViewController , MKMapViewDelegate {
     
     @IBAction func rightHandButtonAction(_ sender: Any) {
         MapViewController.currentStudentIndex += 1
-        if MapViewController.currentStudentIndex >= allStudents.count {MapViewController.currentStudentIndex = 0}
+        if MapViewController.currentStudentIndex >= Student.allStudents.count {MapViewController.currentStudentIndex = 0}
         gotoStudent()
     }
     
     @IBAction func leftHandButtonAction(_ sender: Any) {
         MapViewController.currentStudentIndex -= 1
-        if MapViewController.currentStudentIndex <= 0 {MapViewController.currentStudentIndex = allStudents.count - 1}
+        if MapViewController.currentStudentIndex <= 0 {MapViewController.currentStudentIndex = Student.allStudents.count - 1}
         gotoStudent()
     }
     
@@ -91,11 +91,11 @@ class MapViewController: UIViewController , MKMapViewDelegate {
      */
     func loadData(){
         StudentApiCaller.getStudents(limit: 100, skip: 0, order: "-updatedAt", uniqueKey: "") { (students, response, error) in
-            Student.updateSharedAllStudents(students: students)
-            self.allStudents = Student.getSharedAllStudents()
+            Student.allStudents =  students
+         
             
             var pins = [MKPointAnnotation]()
-            for student in self.allStudents{
+            for student in Student.allStudents{
                 let lat = CLLocationDegrees(student.latitude )
                 let longitued = CLLocationDegrees(student.longitude )
                 let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: longitued)
@@ -107,7 +107,7 @@ class MapViewController: UIViewController , MKMapViewDelegate {
                 
                 pins.append(annotation)
             }
-            
+            self.mapView.removeAnnotations(self.mapView.annotations)
             self.mapView.addAnnotations(pins)
             self.gotoStudent()
             
@@ -118,7 +118,7 @@ class MapViewController: UIViewController , MKMapViewDelegate {
      Goto student
      */
     func gotoStudent(){
-        let student = allStudents[MapViewController.currentStudentIndex]
+        let student = Student.allStudents[MapViewController.currentStudentIndex]
         gotoLocation(lat: student.latitude, long: student.longitude)
     }
     
@@ -129,7 +129,7 @@ class MapViewController: UIViewController , MKMapViewDelegate {
         print ("\(lat)   \(long)")
         let center = CLLocationCoordinate2D(latitude: lat, longitude: long)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
-        self.mapView.setRegion(region, animated: true)
+        mapView.setRegion(region, animated: true)
     }
     
     

@@ -15,7 +15,7 @@ class LocationsViewController: UIViewController , UITableViewDelegate , UITableV
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     @IBOutlet weak var locationsTable: UITableView!
-    var allStudents = [Student]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ class LocationsViewController: UIViewController , UITableViewDelegate , UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allStudents.count
+        return Student.allStudents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,7 +52,7 @@ class LocationsViewController: UIViewController , UITableViewDelegate , UITableV
         
         let cell = UITableViewCell()
         let image = UIImage(named: "location\(imageNum)")
-        let student = allStudents[indexPath.row]
+        let student = Student.allStudents[indexPath.row]
         cell.textLabel!.text = student.firstName + " " + student.lastName
         cell.imageView?.contentMode = .scaleAspectFit
         cell.imageView?.image = image
@@ -61,14 +61,19 @@ class LocationsViewController: UIViewController , UITableViewDelegate , UITableV
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
-       /* let controller = self.storyboard!.instantiateViewController(identifier: "MainTabViewController") as! MainTabViewController
-       
-        MapViewController.currentStudentIndex = indexPath.row
-        present(controller, animated: true, completion: nil)*/
         
         
-        UIApplication.shared.open(URL(string: allStudents[indexPath.row].mediaURL)!, options: [:], completionHandler: nil)
+        if  let url = URL(string: Student.allStudents[indexPath.row].mediaURL){
+           
+            UIApplication.shared.open(url, options: [:]) { (success) in
+                if !success{
+                    UIHelper.showAlertDialog(msg: .errorInURL, title: .errorInOpenURL, orignialViewController: self)
+                }
+            }
+        }else {
+            UIHelper.showAlertDialog(msg: .errorInURL, title: .errorInOpenURL, orignialViewController: self)
+        }
+        
         
     }
     
@@ -102,8 +107,8 @@ class LocationsViewController: UIViewController , UITableViewDelegate , UITableV
                 UIHelper.showAlertDialog(msg: .errorLoadingLocations, title: .errorLoadingLocations, orignialViewController: self)
                 return
             }
-            Student.updateSharedAllStudents(students: students)
-            self.allStudents = Student.getSharedAllStudents()
+            Student.allStudents = students
+           
             self.locationsTable.reloadData()
             self.handleIndicator(value: false)
             

@@ -36,6 +36,10 @@ class StructsTests: XCTestCase {
     """.data(using: .utf8)!
     
     
+    let errorJson = """
+    {"status":403,"error":"Account not found or invalid credentials."}
+    """.data(using: .utf8)!
+    
     
     
     override func setUp() {
@@ -64,5 +68,14 @@ class StructsTests: XCTestCase {
             XCTFail("Fail in parsing the session from json : \(error.localizedDescription)")
         }
     }
+    
+    func testJsonError(){
+           do {
+            let result = try decoder.decode(LoginErrorResponse.self, from: errorJson)
+               print ("Succeeded \(result)")
+           }catch{
+               XCTFail("Fail in parsing the session from json : \(error.localizedDescription)")
+           }
+       }
     
 }

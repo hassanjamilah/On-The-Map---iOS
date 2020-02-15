@@ -19,6 +19,7 @@ class UIHelper{
         case errorLoadingLocations = "Unable to load the locations.\nPlease try to press the refresh button"
         case errorInLogOut = "Unable to log out.\nPlease try again"
         case errorInPostingLocation = "Unable to post the info.\nPlease try again"
+        case errorInURL = "Unable to open the url"
     }
     
     enum UIErrorTitles:String{
@@ -28,6 +29,7 @@ class UIHelper{
         case errorLoadingLocations = "Error In Loading"
         case errorInLogOut = "Can not log out!"
         case errorInPostingLocation = "Unable to post"
+        case errorInOpenURL = "Invalid URL"
     }
     
     
@@ -39,6 +41,16 @@ class UIHelper{
         controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         orignialViewController.present(controller, animated: true, completion: nil)
     }
+    
+    /**
+        Show alert dialog
+        */
+       class func showAlertDialog(messageText msg:String , title:String ,orignialViewController:UIViewController){
+           let controller = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+           controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+           orignialViewController.present(controller, animated: true, completion: nil)
+       }
+    
     
     /**
      Check if the enterd value is null to display error message

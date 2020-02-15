@@ -10,6 +10,7 @@
 		CE169A1823EC3B6D0065A784 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE169A1723EC3B6D0065A784 /* MapViewController.swift */; };
 		CE169A1A23EC3B830065A784 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE169A1923EC3B830065A784 /* LocationsViewController.swift */; };
 		CE169A1C23EC3BAF0065A784 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE169A1B23EC3BAF0065A784 /* AddLocationViewController.swift */; };
+		CEAD83CF23F1A89F005849BE /* LoginErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD83CE23F1A89F005849BE /* LoginErrorResponse.swift */; };
 		CED6813523EE375C006C93B2 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6813423EE375C006C93B2 /* Student.swift */; };
 		CED6813823EE3BC6006C93B2 /* StudentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6813723EE3BC6006C93B2 /* StudentClient.swift */; };
 		CED6813F23EE5A8C006C93B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6813E23EE5A8C006C93B2 /* LoginViewController.swift */; };
@@ -56,6 +57,7 @@
 		CE169A1723EC3B6D0065A784 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CE169A1923EC3B830065A784 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		CE169A1B23EC3BAF0065A784 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		CEAD83CE23F1A89F005849BE /* LoginErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginErrorResponse.swift; sourceTree = "<group>"; };
 		CED6813423EE375C006C93B2 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		CED6813723EE3BC6006C93B2 /* StudentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClient.swift; sourceTree = "<group>"; };
 		CED6813E23EE5A8C006C93B2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				CED6817223EEAA2F006C93B2 /* ModifyStudentResponse.swift */,
 				CED6817423EECB7F006C93B2 /* SessionFromUdacity.swift */,
 				CED6818623EEE462006C93B2 /* UserInfo.swift */,
+				CEAD83CE23F1A89F005849BE /* LoginErrorResponse.swift */,
 			);
 			path = "Response Models";
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				CED6818923EF8835006C93B2 /* UIHelper.swift in Sources */,
 				CE169A1823EC3B6D0065A784 /* MapViewController.swift in Sources */,
 				CE169A1C23EC3BAF0065A784 /* AddLocationViewController.swift in Sources */,
+				CEAD83CF23F1A89F005849BE /* LoginErrorResponse.swift in Sources */,
 				CEF37D4223EAEC44008CA8FE /* SceneDelegate.swift in Sources */,
 				CE169A1A23EC3B830065A784 /* LocationsViewController.swift in Sources */,
 			);

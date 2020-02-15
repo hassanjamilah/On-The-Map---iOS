@@ -96,7 +96,7 @@ class StudentApiCaller{
                 if data != nil {
                     completion(true , response , nil)
                 }else {
-                    completion(false , response , nil )
+                    completion(false , response , error )
                 }
             }
             
@@ -119,8 +119,7 @@ class StudentApiCaller{
             DispatchQueue.main.async {
                 
                 if success {
-                    let controller = originalController.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
-                    originalController.present(controller, animated: true, completion: nil)
+                    originalController.dismiss(animated: true, completion: nil)
                 }else {
                     UIHelper.showAlertDialog(msg: .errorInLogOut, title: .errorInLogOut, orignialViewController: originalController)
                 }

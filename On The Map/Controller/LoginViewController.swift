@@ -48,7 +48,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 
             }else {
-                UIHelper.showAlertDialog(msg: .errorInLogin, title: .errorLoginTitle, orignialViewController: self)
+                UIHelper.showAlertDialog(messageText: error?.localizedDescription ?? "Unknown Error", title: "Login Error", orignialViewController: self)
             }
             
         }

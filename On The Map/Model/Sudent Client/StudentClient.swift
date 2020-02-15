@@ -127,7 +127,7 @@ class  StudentClient {
     
     
     class func taskForPostRequest<ResponseType: Decodable , RequestType:Encodable>(url:URL , body:RequestType , responseType:ResponseType.Type , isEncodedData:Bool , completionHandler:@escaping(ResponseType? ,URLResponse? ,  Error?)->Void)->URLSessionTask{
-        
+        var newData:Data = Data()
         print ("The url for the post request is : \(url)")
         var request = URLRequest(url: url)
         request.addValue("applicaiton/json", forHTTPHeaderField: "Accept")
@@ -150,7 +150,7 @@ class  StudentClient {
                 return
             }
             do{
-                var newData:Data
+                
                 if isEncodedData{
                     newData = data.subdata(in: (5..<data.count))
                 }else {
@@ -160,13 +160,19 @@ class  StudentClient {
                 completionHandler(result , response , nil)
                 print (ErrorMsgs.success("in type : \(ResponseType.Type.self) \(result)"))
             }catch{
-                if  let newError = try? JSONDecoder().decode(ErrorRespons.self, from: data){
-                    completionHandler(nil , response , newError)
-                }else {
-                    let stringData = String(data: data , encoding: .utf8)!
-                    print (ErrorMsgs.errorParsingJson(" in type :\(ResponseType.Type.self) with erorr : \(error.localizedDescription) data is : \(stringData)"))
+                let stringData = String(data: newData , encoding: .utf8)!
+                print (ErrorMsgs.errorParsingJson(" in type :\(ResponseType.Type.self) with erorr : \(error.localizedDescription) data is : \(stringData)"))
+                let stringData1 = String(data: newData , encoding: .utf8)!
+                
+                do {
+                    let result:LoginErrorResponse = try JSONDecoder().decode(LoginErrorResponse.self, from: newData)
+                    print ("Succeeded \(result)")
+                    completionHandler(nil , response , result)
+                }catch{
                     completionHandler(nil , response , error)
                 }
+                
+                
                 
             }
         }
