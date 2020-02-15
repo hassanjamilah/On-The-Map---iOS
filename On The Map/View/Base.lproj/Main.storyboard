@@ -20,20 +20,20 @@
                                 <items>
                                     <navigationItem title="Students Map" id="6VH-3x-Qot">
                                         <leftBarButtonItems>
-                                            <barButtonItem image="mappin" catalog="system" id="WbY-Gu-2g3">
-                                                <connections>
-                                                    <segue destination="8mX-YP-loC" kind="show" id="bJb-ya-jpZ"/>
-                                                </connections>
-                                            </barButtonItem>
                                             <barButtonItem image="person.crop.circle.badge.minus" catalog="system" id="Z16-Qk-4cv">
                                                 <connections>
                                                     <action selector="logOutButtonAction:" destination="TtG-Dl-gZ5" id="pKM-DJ-9RN"/>
                                                 </connections>
                                             </barButtonItem>
+                                            <barButtonItem image="arrow.clockwise" catalog="system" id="fXq-eA-KzW">
+                                                <connections>
+                                                    <action selector="refreshData:" destination="TtG-Dl-gZ5" id="wFf-el-88f"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </leftBarButtonItems>
-                                        <barButtonItem key="rightBarButtonItem" image="arrow.clockwise" catalog="system" id="fXq-eA-KzW">
+                                        <barButtonItem key="rightBarButtonItem" image="mappin" catalog="system" id="WbY-Gu-2g3">
                                             <connections>
-                                                <action selector="refreshData:" destination="TtG-Dl-gZ5" id="wFf-el-88f"/>
+                                                <segue destination="8mX-YP-loC" kind="show" id="bJb-ya-jpZ"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -305,21 +305,21 @@
                                 <items>
                                     <navigationItem title="Recent Students" id="4IR-4T-fpx">
                                         <leftBarButtonItems>
-                                            <barButtonItem image="mappin" catalog="system" id="3BQ-P3-nMr" userLabel="Goto Map Button">
-                                                <connections>
-                                                    <action selector="gotoMapsButtonAction:" destination="cqC-aG-82K" id="yBH-XN-JlI"/>
-                                                    <segue destination="8mX-YP-loC" kind="show" id="yMP-x3-6UH"/>
-                                                </connections>
-                                            </barButtonItem>
                                             <barButtonItem image="person.crop.circle.badge.minus" catalog="system" id="ZEA-kp-L80">
                                                 <connections>
                                                     <action selector="logOutButtonAction:" destination="cqC-aG-82K" id="Vvr-mF-x1V"/>
                                                 </connections>
                                             </barButtonItem>
+                                            <barButtonItem image="arrow.clockwise" catalog="system" id="fHr-W5-U5X" userLabel="Reload Data Button">
+                                                <connections>
+                                                    <action selector="reloadButtonAction:" destination="cqC-aG-82K" id="IEd-MR-F5G"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </leftBarButtonItems>
-                                        <barButtonItem key="rightBarButtonItem" image="arrow.clockwise" catalog="system" id="fHr-W5-U5X" userLabel="Reload Data Button">
+                                        <barButtonItem key="rightBarButtonItem" image="mappin" catalog="system" id="3BQ-P3-nMr" userLabel="Goto Map Button">
                                             <connections>
-                                                <action selector="reloadButtonAction:" destination="cqC-aG-82K" id="IEd-MR-F5G"/>
+                                                <action selector="gotoMapsButtonAction:" destination="cqC-aG-82K" id="yBH-XN-JlI"/>
+                                                <segue destination="8mX-YP-loC" kind="show" id="yMP-x3-6UH"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
