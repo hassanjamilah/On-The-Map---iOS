@@ -118,10 +118,10 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Enter Your Location Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M1P-g9-lxn">
-                                <rect key="frame" x="0.0" y="82" width="414" height="165"/>
+                                <rect key="frame" x="0.0" y="124" width="414" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.64313725489999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="165" id="EIl-Ub-k4S"/>
+                                    <constraint firstAttribute="height" constant="100" id="EIl-Ub-k4S"/>
                                     <constraint firstAttribute="width" constant="414" id="htT-mE-DER"/>
                                 </constraints>
                                 <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -136,7 +136,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0D-IM-gQD">
-                                <rect key="frame" x="145.5" y="255" width="123" height="30"/>
+                                <rect key="frame" x="145.5" y="232" width="123" height="30"/>
                                 <color key="backgroundColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Find On The Map">
@@ -146,15 +146,43 @@
                                     <action selector="findLocationButtonAction:" destination="8mX-YP-loC" eventType="touchUpInside" id="56I-ke-8MP"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Gw-zR-Aso">
+                                <rect key="frame" x="0.0" y="77" width="414" height="39"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="First Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cAu-4T-eWe">
+                                        <rect key="frame" x="0.0" y="0.0" width="202" height="39"/>
+                                        <color key="backgroundColor" red="0.0" green="0.64313725489999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="8mX-YP-loC" id="MQN-hd-iUo"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Last Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c8l-1N-QUV">
+                                        <rect key="frame" x="212" y="0.0" width="202" height="39"/>
+                                        <color key="backgroundColor" red="0.0" green="0.64313725489999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="8mX-YP-loC" id="7UQ-6J-Gt0"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="S0D-IM-gQD" firstAttribute="top" secondItem="M1P-g9-lxn" secondAttribute="bottom" constant="8" id="59d-5F-zmH"/>
                             <constraint firstItem="tuh-0x-WDR" firstAttribute="trailing" secondItem="M1P-g9-lxn" secondAttribute="trailing" id="N3X-e4-dbd"/>
-                            <constraint firstItem="M1P-g9-lxn" firstAttribute="top" secondItem="Fw3-aw-OFt" secondAttribute="bottom" constant="8" id="PNr-b0-PME"/>
                             <constraint firstItem="Fw3-aw-OFt" firstAttribute="trailing" secondItem="aOD-6H-kan" secondAttribute="trailingMargin" id="Usq-YI-wmb"/>
                             <constraint firstItem="Fw3-aw-OFt" firstAttribute="top" secondItem="tuh-0x-WDR" secondAttribute="top" id="V76-f0-URc"/>
+                            <constraint firstItem="tuh-0x-WDR" firstAttribute="trailing" secondItem="8Gw-zR-Aso" secondAttribute="trailing" id="ah2-nE-zFC"/>
                             <constraint firstItem="M1P-g9-lxn" firstAttribute="leading" secondItem="tuh-0x-WDR" secondAttribute="leading" id="fc8-Ou-nai"/>
+                            <constraint firstItem="8Gw-zR-Aso" firstAttribute="top" secondItem="Fw3-aw-OFt" secondAttribute="bottom" constant="3" id="h9s-n1-pyn"/>
+                            <constraint firstItem="8Gw-zR-Aso" firstAttribute="leading" secondItem="tuh-0x-WDR" secondAttribute="leading" id="jRn-Pk-4ub"/>
+                            <constraint firstItem="M1P-g9-lxn" firstAttribute="top" secondItem="8Gw-zR-Aso" secondAttribute="bottom" constant="8" id="mwi-hX-ucX"/>
                             <constraint firstItem="S0D-IM-gQD" firstAttribute="centerX" secondItem="aOD-6H-kan" secondAttribute="centerX" id="vP2-Z0-AoS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tuh-0x-WDR"/>
@@ -162,6 +190,8 @@
                     <navigationItem key="navigationItem" id="PIy-qv-E7l"/>
                     <connections>
                         <outlet property="addLocationTextField" destination="M1P-g9-lxn" id="oIz-ta-wMs"/>
+                        <outlet property="firstNameTextField" destination="cAu-4T-eWe" id="ceS-oW-MIj"/>
+                        <outlet property="lastNameTextField" destination="c8l-1N-QUV" id="N7i-gt-YjU"/>
                         <outlet property="loadingIndicator" destination="BZk-Vi-z6p" id="pL4-b2-sSn"/>
                         <outlet property="locationTextField" destination="M1P-g9-lxn" id="o31-pf-c7M"/>
                         <segue destination="NYG-Zc-RSS" kind="show" id="36t-o9-pPV"/>
@@ -169,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mar-K4-13S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2377" y="-1136"/>
+            <point key="canvasLocation" x="-2378.2608695652175" y="-1136.3839285714284"/>
         </scene>
         <!--Submit Location-->
         <scene sceneID="52N-YN-7Ys">
@@ -471,7 +501,7 @@
         <image name="udacity" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W8n-6c-DMh"/>
+        <segue reference="Hjp-tM-gT6"/>
         <segue reference="yMP-x3-6UH"/>
     </inferredMetricsTieBreakers>
 </document>

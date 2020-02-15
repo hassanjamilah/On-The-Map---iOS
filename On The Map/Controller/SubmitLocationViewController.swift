@@ -16,6 +16,8 @@ class SubmitLocationViewController: UIViewController , UITextFieldDelegate {
     
     var coordinate:CLLocationCoordinate2D!
     var mapString:String!
+    var firstName:String!
+    var lastName:String!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,7 +41,8 @@ class SubmitLocationViewController: UIViewController , UITextFieldDelegate {
     
     //MARK: UI Actions
     @IBAction func submitButtonAction(_ sender: Any) {
-        let student = Student(createDate: "\(Date())", firstName: "Hani", lastName: "Abed", latitude: coordinate.latitude, longitude: coordinate.longitude, mapString: mapString, mediaURL: urlTextField.text!, objectID: "", uniqueKey: "3432", updatedDate: "")
+        let uniqueKey = Int.random(in: (1000...100000))
+        let student = Student(createDate: "\(Date())", firstName: firstName, lastName: lastName, latitude: coordinate.latitude, longitude: coordinate.longitude, mapString: mapString, mediaURL: urlTextField.text!, objectID: "", uniqueKey: "\(uniqueKey)", updatedDate: "")
         
         StudentApiCaller.postNewStudent(student: student) { (rsult, reponse, error) in
             guard error == nil  else {

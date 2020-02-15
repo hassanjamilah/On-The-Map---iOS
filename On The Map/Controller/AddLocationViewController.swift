@@ -10,6 +10,8 @@ import UIKit
 import MapKit
 class AddLocationViewController: UIViewController , UITextFieldDelegate {
     
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var addLocationTextField: UITextField!
@@ -24,8 +26,22 @@ class AddLocationViewController: UIViewController , UITextFieldDelegate {
     
     //MARK: UI Actions
     @IBAction func findLocationButtonAction(_ sender: Any) {
+        let firstName = (firstNameTextField.text!).trimmingCharacters(in: .whitespaces)
+        let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespaces)
+        let value = locationTextField.text!.trimmingCharacters(in: .whitespaces)
+        guard firstName.count > 0 else {
+            UIHelper.showAlertDialog(msg: .firstNameEmpty, title: .firstNameEmpty, orignialViewController: self)
+            return
+        }
+        guard lastName.count > 0  else {
+            UIHelper.showAlertDialog(msg: .lastNameEmpty, title: .lastNameEmpty, orignialViewController: self)
+            return
+        }
+        guard value.count > 0 else {
+            UIHelper.showAlertDialog(msg: .locationEmpty, title: .locationEmpty, orignialViewController: self)
+            return
+        }
         
-        let value = locationTextField.text!
         findLocation(location: value) { (coordinate, error) in
             if let coordinate = coordinate{
                 print (coordinate)
@@ -34,6 +50,8 @@ class AddLocationViewController: UIViewController , UITextFieldDelegate {
                     let controller = self.storyboard!.instantiateViewController(identifier: "SubmitLocationViewController") as! SubmitLocationViewController
                     controller.coordinate = coordinate
                     controller.mapString = value
+                    controller.firstName = firstName
+                    controller.lastName = lastName
                     self.present(controller, animated: true, completion: nil)
                     
                 }

@@ -20,6 +20,9 @@ class UIHelper{
         case errorInLogOut = "Unable to log out.\nPlease try again"
         case errorInPostingLocation = "Unable to post the info.\nPlease try again"
         case errorInURL = "Unable to open the url"
+        case firstNameEmpty = "The first name can not be empty.\nPlease enter your first name."
+        case lastNameEmpty = "The last name can not be empty.\nPlease enter your last name."
+        case locationEmpty = "The location can not be empty.\nPlease enter your location."
     }
     
     enum UIErrorTitles:String{
@@ -30,6 +33,9 @@ class UIHelper{
         case errorInLogOut = "Can not log out!"
         case errorInPostingLocation = "Unable to post"
         case errorInOpenURL = "Invalid URL"
+        case firstNameEmpty = "Empty First Name"
+        case lastNameEmpty = "Empty Last Name"
+        case locationEmpty = "Empty Location"
     }
     
     
